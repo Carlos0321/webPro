@@ -18,7 +18,8 @@ public class Ex {
 		System.out.println((korean + english + math) / 3);
 		System.out.println(average);
 	}
-// ∞≠ªÁ¥‘ «Æ¿Ã
+// 
+
 	int kor = 99;
 	int math = 100;
 	int eng = 99;
