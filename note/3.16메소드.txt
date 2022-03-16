@@ -1,0 +1,16 @@
+메모리 안에 class가 들어있다. 
+class는 설계도 같은것이다.
+static은 class가 있어야 사용 할 수 있다. 
+
+class(설계도)를 stack메모리에 올리는 것을 객체화 시킨다고 한다
+new 타입  ( new = 메모리에 올리는 과정)
+
+Arithmetic         ar    = new Arithmetic()  // instance (stack메모리로 가져옴)
+클래스명(타입)  주소 = 메모리할당 
+
+클래스는 타입이다 
+타입을 왜만들어? 회원가입할때 회원이라는 타입 만드는것처럼 
+클래스 = 입력할 데이터 + 메소드 
+private나 public으로 데이터를 막거나 오픈 
+
+객채 =object = 인스턴스 
