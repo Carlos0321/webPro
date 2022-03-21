@@ -19,7 +19,8 @@ return 밑에 출력하면 안된다 오류남
 
 
 /명시적 형변환 공부하기 
-/ infostring tostring 질문 
+/infostring 
+/toString  Object의 내용을   출력하고자 하는 String을 리턴 
 
 this. :내 객체가 갖고 있는 ~~
 this(): 내 객체 클래스의 생성자 호출
