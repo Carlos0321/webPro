@@ -1,0 +1,13 @@
+인터페이스
+'class'대신 'interface' 예약어를 사용한다는 점에서 클래스와 유사
+실제 구현된 기능없이 추상메소드와 상수만이 존재
+
+public interface 인터페이스이름 {
+public static final 타입 상수이름 = 값;
+public abstract 메서드 이름(매개변수 목록); //구현된 메소드는 가질 수 없다
+}
+
+모든 멤버변수는 public static final이어야하며 static final은 생략할 수 있다.
+모든 메서드는 public abstract 이어야 하며, abstract를 생략할 수 있다.
+
+
