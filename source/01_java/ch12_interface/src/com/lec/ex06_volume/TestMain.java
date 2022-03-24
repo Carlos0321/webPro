@@ -10,6 +10,8 @@ public class TestMain {
 			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~");
 			temp.volumeUP(10);
 			temp.volumeUP(45);
+			temp.setMute(true); // default
+			System.out.println("~~~~~~~~~~~~~~~~");
 		}
 	}
 }

@@ -47,7 +47,7 @@ public class Book implements ILendable {
 	public void printState() {
 		if(state == STATE_NORMAL) {
 			System.out.println(bookNo + "\t" + bookTitle + "\t" + writer +"지음" + "\t대출 가능");
-		}else if(state == STATE_NORMAL) {
+		}else if(state == STATE_BORROWED) {
 			System.out.println(bookNo + "\t" + bookTitle + "\t" + writer +"지음" + "\t대출중");
 		}else{
 			System.out.println(bookNo + "\t" + bookTitle + "\t" + writer +"지음" + "\t오류");

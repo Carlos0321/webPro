@@ -5,11 +5,11 @@ import java.util.Scanner;
 public class TestMain {
 
 	public static void main(String[] args) {
-		Book[] books = { new Book("890ㅁ101-1ㄱ", "python", "이길동"), 
-				 		new Book("110ㄱ-234-5ㅈ", "java", "신길동"),
-				 		new Book("110ㄴ-432-2ㄱ", "oracle", "홍길동"), 
-				 		new Book("778ㅅ-432-2ㅌ", "jsp", "유길동"),
-				 		new Book("110ㄱ-234-5ㅈ", "spring", "김길동") };
+		Book[] books = {new Book("890ㅁ101-1ㄱ", "python", "김민우"), 
+				 		new Book("110ㄱ-234-5ㅈ", "java", "Carlos"),
+				 		new Book("110ㄴ-432-2ㄱ", "oracle", "토치"), 
+				 		new Book("778ㅅ-432-2ㅌ", "jsp", "메가스터디"),
+				 		new Book("110ㄱ-234-5ㅈ", "spring", "집에가고싶다") };
 
 		Scanner sc = new Scanner(System.in);
 		int fn; // 기능 번호 (1:대출| 2:반납| 3:책list |0:종료)
@@ -25,12 +25,12 @@ public class TestMain {
 				System.out.print("대출하고자 하는 책 이름은 ? : ");
 				bTitle = sc.next(); //white-space 앞까지의 스트링만 받음 
 				//2. 책 조회 
-				for(idx= 0; idx<books.length ; idx++) {
-					if(bTitle.equals(books[idx].getBookTitle())); {
+				
+				for(idx = 0; idx<books.length ; idx++) {
+					if(bTitle.equals(books[idx].getBookTitle())) {
 						break;
 					}
-					//2. 책조회
-				}
+				}//2. 책조회 for
 				if(idx == books.length) {
 					System.out.println("현재 보유하지 않은 도서입니다");
 				}else { //book[idx] 도서를 대출 처리 
@@ -43,12 +43,27 @@ public class TestMain {
 						borrower = sc.next();
 						System.out.println("대출 날짜는 ? : ");
 						checkOutDate = sc.next();
-						books[idx].checkOut(borrower, checkOutDate);
+						books[idx].checkOut(borrower, checkOutDate); // 질문
 						}
 				}
 				break;
-			case 2:
-				System.out.println("반납 진행하는 로직 들어갈 예정");
+			case 2: //반납 : 1. 책이름 2.책조회 3.반납 
+				// 1. 책이름 
+				System.out.println("반납할 책 이름은? : ");
+				bTitle = sc.next();
+				//2. 책조회 
+				for(idx = 0; idx<books.length ; idx++) {
+					if(bTitle.equals(books[idx].getBookTitle())) {
+						break;
+					}
+				}
+				if(idx==books.length) {  // 질문 
+					System.out.println("해당 도서는 본 도서관의 책이 아닙니다");
+				}else {//idx가 찾은 그 위치 
+					//3. 반납
+					books[idx].checkIn();
+				}
+				
 				break;
 			case 3:
 				System.out.println("책 리스트는 다음과 같습니다");
