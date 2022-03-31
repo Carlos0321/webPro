@@ -1,0 +1,26 @@
+Math.ceil(올릴 실수값) 
+Math.round(반올림할 실수값)
+Math.floor(내릴 실수값)
+
+Math.random(난수 발생 0~1사이)
+Returns a double value with a positive sign, greater than or equal to 0.0 and less than 1.0.
+
+배열 단점
+1. 크기 고정
+2. 정렬 
+3. 중복 제거 
+
+public String toString() 객체의 문자열을 반환한다.
+public boolean equals(Object obj)
+public int hashCode() 자바에서 객체를 식별하는 정수 값인 해시 코드를 반환(다량의 데이터를 저장&검색하는 해싱 기법에 사용된다.) 
+protected Object Clone() 객체를 복사하는데 사용
+public Class getClass() 객체의 클래스 이름을 Class형으로 반환한다
+
+1)toString() ; 객체의 정보를 문자열로 제공할 목적으로 정의된 메서드.
+자바는 사용자가 모르게 내부적으로 동작하는 메소드 들이 많은데 그 중 하나가 toString().
+
+clone 메소드(객체를 복제하는 메소드)
+객체 자신을 복제해서 새로운 객체를 생성하는 메소드
+Cloneable 인터페이스를 구현한 클래스의 인스턴스만 복제할 수 있다.
+Object 클래스에 정의된 clone()은 인스턴스 변수의 값만 복제한다.
+인스턴스 변수가 참조형일 때 참조하는 객체도 복제되게 오버라이딩해야 함
