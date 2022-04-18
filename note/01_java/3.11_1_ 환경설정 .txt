@@ -3,6 +3,14 @@ git 주소 들어가서  code -> Download zip 압축 해제
 주소를 복사하여 
 C드라이브에서 cmd ->git clone 주소 
 
+C:\Program Files\Java\jdk1.8.0_321
+
+JAVA_HOME 환경변수생성
+JAVA_HOME="C:\Program Files\Java\jdk1.8.0_321"
+
+Path추가할 내용
+;%JAVA_HOME%\bin
+
 public 객체지향형
 static도 중요 
 ctrl / 주석처리 
