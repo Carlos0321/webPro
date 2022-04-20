@@ -1,0 +1,23 @@
+1. 요구사항을 보고 테이블 설계
+1-1
+2. SQL문(테이블 생성, 시퀀스생성, 데이터 INSERT 및 재고 UPDATE)
+MEMBER(고객) --mID(PK) ,mNAME,mADDRESS, mTEL,mEMAIL
+PRODUCT(상품) --pCODE(PK),pNAME,PRICE, pSTOCK, COST (수량*단가)  
+CART(장바구니) --순차번호,mID, pCODE1, QTY1,COST1
+ODERS(주문)--SYSDATE, oNO(PK) {SYSDATE+SEQUENCE(00001)},
+		mID(FK)이큅조인, oADDR, oTEL, oDATE,
+
+주문상세-oNO, pCODE1(FK)조인 QTY(수량), COST
+0001 A2 2 6000
+
+부모부터 CREATE 	
+
+장바구니에 cNO 밑에 아무도 PRIMARYKEY 못하는 이유 질문하기 
+주문을하면 장바구니에 있는 정보는 사라지게 코드짜기 
+
+주문번호 하나에 여러개가 들어가있음 
+ORDERS 주문번호와 카트의 순차번호는 FK키? 
+
+주문번호
+SYSDATE + 00001 ()
+INSERT할때마다 UPDATE 하나 샀으면 STOCK에서 개수 빼줘야함 
