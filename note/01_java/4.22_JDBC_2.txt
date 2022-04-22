@@ -1,0 +1,5 @@
+(*)PreparedStatement 인터페이스 이용
+	String sql_query = “insert into dept values (?,?,?);
+	PreparedStatement pstmt = conn.preparedStatement(sql_query);
+	setXXX(int 순서, 실제 데이터나 변수);
+
