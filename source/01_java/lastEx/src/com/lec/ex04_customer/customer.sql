@@ -1,0 +1,67 @@
+DROP TABLE CUSTOMER;
+DROP TABLE CUS_LEVEL;
+
+--CREATE TABLE
+CREATE TABLE CUS_LEVEL(
+    LEVELNO NUMERIC(1,0) PRIMARY KEY,
+    LEVELNAME VARCHAR2(20) ,
+    LOW NUMERIC(10,0) ,
+    HIGH  NUMERIC(10,0));
+
+CREATE TABLE CUSTOMER(
+    CID NUMERIC(6,0) PRIMARY KEY,
+    CTEL VARCHAR2(20) NOT NULL,
+    CNAME VARCHAR2(20) NOT NULL,
+    CPOINT NUMERIC(10,0) DEFAULT 1000,
+    CAMOUNT NUMERIC(10,0) DEFAULT 0,
+    LEVELNO NUMERIC(1,0) REFERENCES CUS_LEVEL(LEVELNO));
+DROP  SEQUENCE CUS_SEQ;
+CREATE SEQUENCE CUS_SEQ MAXVALUE 9999 NOCACHE NOCYCLE;    
+
+INSERT INTO CUS_LEVEL VALUES (1, 'NORMAL', 0, 999999);
+INSERT INTO CUS_LEVEL VALUES (2, 'SILVER', 1000000, 1999999);
+INSERT INTO CUS_LEVEL VALUES (3, 'GOLD',   2000000, 2999999);
+INSERT INTO CUS_LEVEL VALUES (4, 'VIP',    3000000, 3999999);
+INSERT INTO CUS_LEVEL VALUES (5, 'VVIP',   4000000, 999999999);
+
+INSERT INTO CUSTOMER VALUES(CUS_SEQ.NEXTVAL,'010-9999-9999','홍길동',99000,2000000,3);
+INSERT INTO CUSTOMER VALUES(CUS_SEQ.NEXTVAL,'010-8888-8888','김길동',1000,4000000,5);
+INSERT INTO CUSTOMER VALUES(CUS_SEQ.NEXTVAL,'010-7777-7777','신길동',51000,1000000,2);
+COMMIT;
+SELECT * FROM CUS_LEVEL;
+SELECT * FROM CUSTOMER;
+-- 프로그램에서 필요한 QUERY
+-- 0. 레벨이름들 검색 : public Vector<String> getLevelNames()
+SELECT LEVELNAME FROM CUS_LEVEL ;
+-- 1. cId로 검색 : public CustomerDto cIdGetCustomer(int cId)
+SELECT CID, CTEL, CNAME, CPOINT, CAMOUNT,LEVELNAME ,
+(SELECT HIGH-CAMOUNT+1 FROM CUSTOMER WHERE CID = C.CID AND LEVELNO!=5) forLEVELUP
+FROM CUSTOMER C, CUS_LEVEL L WHERE C.LEVELNO=L.LEVELNO AND CID=1;
+-- 2. 폰뒤4자리(FULL) 검색 - CTEL, CNAME, CPOINT, CAMOUNT, LEVELNAME, 레벨업을 위한 쓸 돈
+--                       public ArrayList<CustomerDto> cTelGetCustomers(String cTel);
+SELECT CTEL, CNAME, CPOINT, CAMOUNT , LEVELNAME, (SELECT HIGH-CAMOUNT+1 FROM CUSTOMER WHERE CID = C.CID AND LEVELNO!=5) forLEVELUP
+FROM CUSTOMER C, CUS_LEVEL L WHERE C.LEVELNO=L.LEVELNO
+AND TO_CHAR(CTEL,);
+-- 3. 고객이름검색 - CTEL, CNAME, CPOINT, CAMOUNT, LEVELNAME, 레벨업을 위한 쓸 돈
+--                       public ArrayList<CustomerDto> cNameGetCustomers(String cName);
+
+-- 4. 포인트로만 구매(1000원짜리를 포인트로만 구매) : public int buyWithPoint(int cAmount, int cId)
+
+-- 5. 물품구매 (1000000원짜리를 구매할 경우. 포인트는 구매금액의 5%)
+    -- 물품구매시 UPDATE 2회 필요(구매누적금액 UPDATE와 LEVELNO UPDATE)
+    --  public int buy(int cAmount, int cId)
+
+-- 5-1과 5-2를 합쳐
+
+-- 6. 등급별출력 - CID, CTEL, CNAME, CPOINT, CAMOUNT, LEVELNAME, 레벨업을위한쓸돈
+--              public ArrayList<CustomerDto> levelNameGetCustomers(String levelName)
+
+-- 7.전체출력 - CID, CTEL, CNAME, CPOINT, CAMOUNT, LEVELNAME, 레벨업을위한쓸돈
+--            public ArrayList<CustomerDto> getCustomers()
+
+-- 8. 회원가입(고객전화와 고객이름은 입력받아 INSERT)
+--          public int insertCustomer(String cTel, String cName)
+
+-- 9. 번호수정 : public int updateCustomer(String cTel, int cId)
+
+-- 10. 회원탈퇴 : public int deleteCustomer(String cTel)

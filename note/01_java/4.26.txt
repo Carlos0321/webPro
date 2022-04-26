@@ -1,0 +1,8 @@
+executeQuery() = SELECT문을 쏠때 사용한다  결과 값이 몇 줄 이렇게 나오므로 RETURN값이 ARRAYLIST로 받는다. 
+ executeUpdate() 는 UPDATE,DELETE,INSERT를 할때 사용된다.  ?행이 업데이트,삭제,삽입 됐다고 뜨므로 
+? 값이 1행이라고 했을때,  int값으로 리턴받는다 . 
+
+public int insertStudent(StudentDto dto) {
+		int result = FAIL; 이부분 FAIL로 주는거 이해가 안됨 
+
+while(rs.next)하는 이유 
