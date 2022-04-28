@@ -1,0 +1,22 @@
+프로토콜(Protocol) : 
+ Http : HyperText Transfer Protocol 정보를 가져와 화면상에서 봄
+ FTP : File Transfer Protocol
+ SMTP, POP : 메일 송수신 protocol
+ DHCP : Dynamic Host Configuration Protocol 다이나믹하게 계속 사설 ip 분배해주는 하여 Web을 사용하도록 하는 protocol
+ DNS : 
+ Port : 
+
+<br /> 한줄 띄어쓰기 위해서 
+/ 닫힌 태그 이다 
+
+HTML이란?
+HTML이란, Hyper Text Markup Language의 약자로서 웹문서를 기술하는 언어
+웹문서를 표현하기 위해 태그들로 구성되어 있습니다.
+
+CSS란?
+Cascading Style Sheets의 약자로, HTML문서를 디자인적으로 예쁘게 만들어 정보 전달을 좀더 효율적으로 하기 위해 만들어진 문서 입니다.
+HTML은 정보를 가지고 있고, CSS는 화면상의 레이아웃등을 컨트롤하는 문서라고 생각 하면 됩니다.
+
+JavaScript (동적인 내용) -> jQuery
+2,3,4는 client단 / 서버단 PG은 java (DB에 연결하거나 상황에 따라 달리 작동)
+cf) Ajax는 웹 페이지의 특정 부분(특정 태그 부분)를 업데이트하고 서버와 데이터를 교환하는 기술
