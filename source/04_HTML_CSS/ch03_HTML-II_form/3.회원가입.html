@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        table{
+            background-color : white;
+        }
+        td{
+            background-color : white;
+            text-align : center;
+            padding:10px;
+        }
+    </style>
+</head>
+<body>
+    <form action=""></form>
+    <table>
+        <caption><h2>회원가입</h2></caption>
+        <tr>
+            <td>아이디</td>
+            <td>
+                <input type="text" name="uid" size="20" />
+            </td>
+        <tr/>
+        <tr>
+            <td>비밀번호</td>
+            <td>
+                <input type="password" name="pw" />
+            </td>
+
+        </tr>
+        <tr>
+
+            <td>비밀번호 확인</td>
+            <td>
+                <input type="password" name="pwChek" />
+            </td>
+        </tr>
+        <tr>
+
+            <td>이름</td>
+            <td>
+                <input type="text" name="uname" />
+            </td>
+        </tr>
+        <tr>
+
+            <td>전화</td>
+            <td>
+                <input type="tel" name="utel" size="20" />
+            </td>
+        </tr>
+        <tr>
+
+            <td>생년원일</td>
+            <td>
+                <input type="date" name="birth" />
+            </td>
+        </tr>
+        <tr>
+
+            <td>성별</td>
+            <td >
+                <input type="radio" name="gender" value="M" checked="checked" />남
+                <input type="radio" name="gender" value="F" />여
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit"/>
+                <hr />
+             </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+              <ul>
+                  <li>주민등록없이 전화번호로 회원가입</li>
+                  <li>대부분 서비스가 이용가능합니다<br /></li>
+                  <li>정보변경</li>
+              </ul>                  
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

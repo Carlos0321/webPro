@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        table{
+            background-color : aqua;
+        }
+        td{
+            border-top:1px solid gray;
+            text-align : center;
+            padding:5px;
+        }
+    </style>
+    <script>
+        /* form안의 title은 한글자 이상, name은 2글자 이상 입력했는지 여부판단
+         = from.title.value가 ""이거나, frm.name.value.length=1이면 떼끼 submit불가
+         */
+        function chk() {
+            if (frm.name.value.length<2) {
+                alert('작성자명은 2글자 이상 입력하세요');
+                frm.name.focus();
+                return false;
+            }
+            return true; //생각해도 기본적으로 submit 이루어짐
+        }
+    </script>
+</head>
+<body>
+    <form name="frm" onsubmit="return chk()">
+        <table>
+            <caption><h2>게시판</h2></caption>
+            <tr>
+                <td>제목</td>
+                <td><input type="text" name="title" size="30"
+                           required="required" autofocus="autofocus"/></td> <!--required="required" : 필수입력사항-->
+            </tr>
+            <tr>
+                <td>작성자</td>
+                <td><input type="text" name="name" size="30" /></td>
+            </tr>
+            <tr>
+                <td>본문</td>
+                <td>
+                    <textarea name="content" rows="5" cols="32"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>첨부파일</td>
+                <td><input type="file" name="filename"/></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="입력완료" />
+                    <input type="submit" value="입력취소" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
