@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        #wrap{width :800px; margin:0 auto;}
+        #header{
+            text-align:center;
+            border-bottom:1px solid #CCCCCC;
+        }
+        #content p:nth-child(2)::first-line,
+        #content p:nth-child(3)::first-line{
+            color:blue;
+            font-weight : bold;
+            font-size : 1.3em; /*20px*/
+        }
+        #content p:nth-child(2)::first-letter,
+        #content p:nth-child(3)::first-letter {
+            font-size:2em; /*40px*/
+        }
+        #content p:nth-child(2)::selection{
+            background-color:violet;
+            color:yellow;
+        }
+        #footer ul{
+            overflow:hidden; /*block형 태그를 수평으로 놓고자 하는 부모단*/
+        }
+        #footer ul li{
+            float:left; /*block형 태그를 수평으로*/
+            list-style:none;
+            padding:10px;
+            margin:5px 10px;
+        }
+        #footer ul li:first-child{padding-top :20px;}
+    </style>
+</head>
+<body>
+    <div id="wrap">
+
+    <div id="header">
+        <h1>제목이나 회사명</h1>
+    </div>
+    <div id="content">
+        <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.</p>
+        <p>Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
+        <p>orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+    <div id="footer">
+        <ul>
+            <li><img src="0503/logo.png" alt="회사주소" /></li>
+            <li><img src="0503/add.png" alt="회사주소" /></li>
+        </ul>
+    </div>
+    </div>
+</body>
+</html>
