@@ -1,0 +1,28 @@
+CSS 속성들
+1.	CSS3 단위들: em, %, px
+2.	url() : 백그라운드 이미지, 폰트 지정
+3.	display : inline, block, inline-block, none
+/*display속성은 div태그 기본값을 가짐*/
+	(1)block : div태그 p태그 li태그 - 높이의 속성이 있다.
+	(2)inline : span태그 - 높이의 속성이 없다.
+	(3)inline-block : block의 속성을 갖고 옆으로 붙여 나가는 것 - 높이의 속성이 있다.
+
+4.	visibility
+	(1)visibility:hidden은 공간은 확보, 안보임
+	(2)display:none은 공간도 사라짐
+
+5.	opacity
+6.	margin과 padding
+7.	boxing-sizing ; border를 box안으로
+8.	border
+9.	글자관련 속성; font-family, font-size, font-weight, font-style,
+                      line-height, text-align, text-decoration
+9-1.	글자 관련된 속성들 : font-family(글꼴), font-size(크기), font-style(이텔릭체), font-weight(진하게), line-height(행간격 조정용도나 세로축에 대한 정렬 용도), text-align(글자에 대한 정렬), text-decoration(간단한 글꼴 모양의 속성) – 사이트 구축 시 글자 관련 속성 익히기
+
+ 
+10.	position
+①absolute 속성값 ②fixed 속성값 ③static 속성값 ④relative 속성값 ⑤relative와 absolute의 혼합 사용
+11.	float
+12.	웹폰트
+13.	로컬폰트
+14.	Gradient
