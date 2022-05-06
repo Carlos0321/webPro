@@ -1,0 +1,186 @@
+﻿*{margin:0; padding:0;}
+#header{
+    width:100%;
+    height:30px;
+    
+}
+#header .gnb {
+      background-color: black;
+      overflow:hidden;
+      height:50px;
+      line-height:50px;
+      font-size:24px;
+}
+#header > .gnb li {
+        width: 10%;
+        text-align:center;
+        list-style: none;
+        float:left;
+}
+    #header > .gnb li a {
+        text-decoration: none;
+        float: left;
+        color: white;
+    }
+#header .log{
+    border: 1px solid gray;
+    width:200px;
+    height:100px;
+    text-align:center;
+    line-height:100px;
+    margin : 40px auto;
+}
+#header .hitmenu{
+    width:400px;
+    height:60px;
+    overflow:hidden;   
+    float:right;
+    margin: 0 10px 0 0;
+ }
+    #header .hitmenu li {
+        list-style: none;
+        text-align: center;
+        float: right;
+        padding: 10px 20px;
+        line-height: 5px;
+        border: 1px solid gray;
+        margin: 0 auto;
+    }
+#header .hitmenu li a{
+    color:black;
+    text-decoration:none;
+    font-size:20px;
+ }
+        #header .hitmenu li:nth-child(1) {
+            border-radius: 0 10px 10px 0;
+        }
+        #header .hitmenu li:nth-child(4) {
+            border-radius: 10px 0 0 10px;
+        }
+#header .lnb {
+        float: left;
+        overflow: hidden;
+        border-top: 1px dotted black;
+        border-bottom: 1px dotted black;
+        width:100%;
+        text-align:center;
+}
+    #header .lnb li {
+        height: 60px;
+        width:12.5%;
+        float: left;
+        list-style: none;
+        font-weight: bold;
+        text-align: center;
+        line-height:60px;
+    }
+#header .lnb li a{
+    text-decoration:none;
+    color :black;
+}
+
+#content .section1 {
+    width: 1000px;
+    height: 400px;
+    margin: auto;
+    overflow: hidden;
+    border: 1px solid gray;
+}
+#content .slide_banner {
+    width: 698px;
+    height: 400px;
+    float: left;
+    border: 1px solid gray;
+    text-align: center;
+    line-height: 400px;
+}
+#content .side_banner {
+    width: 299px;
+    height: 400px;
+    float: left;
+    text-align: center;
+    line-height:400px;
+}
+#content .section2 {
+    width: 1000px;
+    height:800px;
+    margin: 5px auto;
+    overflow: hidden;
+    border: 1px solid gray; 
+}
+    #content .section2 .hit_product {
+        width: 1000px;
+        height: 400px;
+        margin: 0 7px;
+        box-sizing: border-box;
+       
+    }
+        #content .section2 .hit_product li {
+            list-style: none;
+            border: 1px solid gray;
+            float: left;
+            margin: 0 7px 0 0;
+            width: 240px;
+            height: 400px;
+            margin-bottom:10px;
+            text-align:center;
+            line-height:400px;
+            
+        }
+            #content .section2 .hit_product li a {
+                text-decoration:none;
+                color:black;
+            }
+            #content .section2 .md_product {
+        float: left;
+        margin: 0 7px;
+        width: 1000px;
+    }
+                #content .section2 .md_product li {
+                    list-style: none;
+                    border: 1px solid gray;
+                    float: left;
+                    margin: 0 7px 0 0;
+                    width: 240px;
+                    height: 400px;
+                    text-align: center;
+                    line-height: 400px;
+                }
+    #content .section2 .md_product li a {
+        text-decoration: none;
+        color: black;
+    }
+#footer{
+    width:1000px;
+    margin : 0 auto;
+    height:200px;
+    overflow:hidden;
+}
+    #footer .office_logo {
+        float: left;
+        width: 33%;
+        height: 100px;
+        text-align: center;
+        border: 1px solid gray;
+    }
+    #footer .office_address {
+        float: left;
+        width: 33%;
+        height: 100px;
+        text-align: center;
+        border: 1px solid gray;
+    }
+    #footer .office_info {
+        float: left;
+        width: 33%;
+        height: 100px;
+        border: 1px solid gray;
+        text-align: center;
+    }
+    #footer .copyright {
+        background-color: black;
+        text-align: center;
+        color: white;
+        height:30px;
+        clear:both;
+    }

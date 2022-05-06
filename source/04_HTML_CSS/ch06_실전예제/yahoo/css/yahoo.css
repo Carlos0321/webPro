@@ -1,0 +1,22 @@
+﻿*{
+    margin:0;
+    padding:0;
+}
+li{
+    list-style:none;
+}
+a{
+    text-decoration:none;
+    color:black;
+}
+/* header*/
+/*header .gnb*/
+#header .gnb{
+    background-color :purple;
+    width:100%;
+}
+#header .gnb ul{
+    width:1000px;
+    margin :0 auto;
+    overflow:hidden;
+}
