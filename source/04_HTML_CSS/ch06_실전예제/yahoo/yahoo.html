@@ -4,11 +4,11 @@
 <head>
     <meta charset="utf-8" />
     <title></title>
-    <link href="yahoo.css" rel="stylesheet" />
+    <link href="css/yahoo.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <div id="header">
-        <div class="header_nav">
+        <div id="header_nav">
             <div class="gnb">
                 <ul>
                     <li><a href="#">Home</a></li>
@@ -26,15 +26,20 @@
             </div>
             <div class="survivalFootball">
                 <p>Play Survival Football for Fress</p>
-                <img src="yahoo/yahoo_logo.png" />
+                <p><img src="img/survivalFootball.png" alt="해골"/></p>
             </div>
         </div>
-        <div class="header_info">
+        <div id="header_info">
             <div class="logo">
-
+                <a href="https://yahoo.com">
+                    <img src="img/yahoo_logo.png" />
+                </a>
             </div>
             <div class="search">
-                btn_search
+               <form action="https://search.yahoo.com/search">
+                   <input type="text"  name="p"/>
+                   <input type="submit" class="btn_search" value="search_web" />
+               </form>
             </div>
             <div class="service">
                 <ul>
@@ -46,7 +51,7 @@
         </div>
      </div>
     <div id="content">
-        <div class="main_menu">
+        <div id="main_menu">
             <ul>
                 <li><a href="#">Mail</a></li>
                 <li><a href="#">News</a></li>
@@ -60,10 +65,10 @@
                 <li><a href="#">Beauty</a></li>
             </ul>
         </div>
-        <div class="#main">
-            <div class="main big">main big banner</div>
-            <div class="main slide">main slide banner</div>
-            <div class="main nav">
+        <div id="main">
+            <div class="main_big">main big banner</div>
+            <div class="main_slide">main slide banner</div>
+            <div class="main_nav">
                 <ul>
                     <li><a href="#">All Stories</a></li>
                     <li><a href="#">News</a></li>
@@ -73,26 +78,25 @@
                     <li><a href="#">More</a></li>
                 </ul>
             </div>
-            <div class="main topic"></div>
-            <div class="main topic"></div>
-            <div class="main topic"></div>
-            <div class="main topic"></div>
+            <div class="main1">main topic</div>
+            <div class="main2">main topic</div>
+            <div class="main3">main topic</div>
+            <div class="main4">main topic</div>
         </div>
-        <div class="main_banner">
-            <div class="hit search work"></div>
-            <div class="ad1"></div>
-            <div class="ad2"></div>
-            <div class="ad3"></div>
-            <div class="ad4"></div>
+        <div id="main_banner">
+            <div class="word">hit search work</div>
+            <div class="ad1">ad1</div>
+            <div class="ad2">ad2</div>
+            <div class="ad3">ad3</div>
+            <div class="ad4">ad4</div>
         </div>
         
     </div>
     <div id="footer">
-        <div class="copyright">
-            서울시 강남구 강남대로94길 13, 4F(역삼동,삼경빌딩)|좋은시스템(주) 홍길동
-            전화 02-555-5556|팩스 02-555-5556| 사업자 등록번호 123-45-67890
-            copyright ⓒ Joeun System Corp. All right reserved
-        </div>        
+        <ul>
+            <li><img src="img/yahoo_logo.png" /></li>
+            <li><img src="img/address.png" /></li>
+        </ul>    
         
     </div>
 </body>
