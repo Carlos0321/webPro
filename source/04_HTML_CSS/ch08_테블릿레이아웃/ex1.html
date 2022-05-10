@@ -1,0 +1,153 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" name="viewport"
+          content="width=device-width"/>
+    <title></title>
+    <style>
+        /*******페이지 초기화******/
+        *{margin:0; padding:0;}
+        li{list-style:none;}
+        a{text-decoration:none;}
+
+        /**********#top_bar**********/
+        #top_bar{
+            height:70px;
+            line-height:70px;
+            background-color:#ffd800;
+            /*고정바 설정*/
+            position:fixed;
+            top:0; left:0; right:0;
+        }
+        #top_bar ul{
+            overflow:hidden;
+            min-width:600px; /*밑으로 떨어지는거 방지 최소한 600확보 */
+        }
+        #top_bar ul li{
+            float:left;
+            width:15%;
+            text-align:center;
+            border-right:2px dotted gray;
+        }
+        #top_bar ul li a{
+            color:black;
+        }
+        /**********#left_bar**********/
+        #left_bar{
+            width:200px;
+            /*고정바 설정*/
+            position:fixed;
+            left:0; top:70px; bottom:70px;
+            background-color:saddlebrown;
+
+        }
+        #left_bar ul{
+            overflow:hidden;
+        }
+        #left_bar ul li{
+           
+         }
+        #left_bar ul li a{
+            display:block;
+            padding:10px 20px;
+            border-bottom: 1px solid gray;
+            color:white;
+            
+        }
+        /**********#right_bar**********/
+        #right_bar{
+            width:200px;
+            background-color:lightyellow;
+            /*고정바 설정*/
+            position:fixed;
+            right:0; top :70px; bottom:70px;
+        }
+        #right_bar ul{
+            height:100%;
+        }
+        #right_bar ul li{
+            height:33%;
+            border-bottom:1px dashed gray;
+            padding:2%
+        }
+        #right_bar ul li img{width:100%; height:100%; }
+        #right_bar ul li a{}
+        /**********#bottom_bar**********/
+        #bottom_bar{
+            height:70px; line-height:70px; text-align:center;
+            background-color:lightyellow;
+            /*고정바 설정*/
+            position:fixed;
+            bottom:0; left:0; right:0;
+            font-size:.8em;
+        }
+        /**********#wrap**********/
+        #wrap{
+            margin:70px 200px;
+            padding:10px;
+        }
+        #wrap img{
+            float:left;
+            margin-right:10px;
+            text-align:center;
+        }
+    </style>
+</head>
+<body>
+    <div id="top_bar">
+        <ul>
+            <li><a href="#gnb1">GNB_1</a></li>
+            <li><a href="#gnb2">GNB_2</a></li>
+            <li><a href="#gnb3">GNB_3</a></li>
+            <li><a href="#gnb4">GNB_4</a></li>
+            <li><a href="#gnb5">GNB_5</a></li>
+            <li><a href="#gnb6">GNB_6</a></li>
+        </ul>
+    </div>
+    <div id="left_bar">
+        <ul>
+            <li><a href="lnb_1">LNB_1</a></li>
+            <li><a href="lnb_2">LNB_2</a></li>
+            <li><a href="lnb_3">LNB_3</a></li>
+            <li><a href="lnb_4">LNB_4</a></li>
+            <li><a href="lnb_5">LNB_5</a></li>
+            <li><a href="lnb_6">LNB_6</a></li>
+            <li><a href="lnb_7">LNB_7</a></li>
+            <li><a href="lnb_8">LNB_8</a></li>
+            <li><a href="lnb_9">LNB_9</a></li>
+            <li><a href="lnb_10">LNB_10</a></li>
+        </ul>
+    </div>
+    <div id="right_bar">
+        <ul>
+            <li>
+                <a href="http://www.daum.net" target="_blank">
+                    <img src="https://t1.daumcdn.net/daumtop_chanel/op/20200723055344399.png" alt="다음로고" />
+                </a>
+            </li>
+            <li>
+                <a href="http://www.google.com" target="_blank">
+                    <img src="https://www.google.co.kr/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="구글로고" />
+                </a>
+            </li>
+            <li>
+                <a href="http://www.daum.net" target="_blank">
+                    <img src="https://t1.daumcdn.net/daumtop_chanel/op/20200723055344399.png" alt="다음로고" />
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div id="bottom_bar">
+        <p>copyright ⓒ joeun system Co. All rights reserved. 101 abc 123-ro molra-gu,Seoul,Korea</p>
+
+    </div>
+    <div id="wrap">
+        <img src="http://via.placeholder.com/100x100" />
+        <p>
+            "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains."
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        </p>
+    </div>
+</body>
+</html>

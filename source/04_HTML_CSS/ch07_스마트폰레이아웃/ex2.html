@@ -39,6 +39,98 @@
             color:#ffffff;
         }
         /*header #search*/
+        /*input[type='text'는 100% width]로
+          input[type='submit'은 50x50으로 background image 입히기]  
+        */
+        header #search{
+            height:50px;
+            position:relative; /*돋보기이미지를 #search안에*/
+        }
+        header #search input[type='text']{
+            width:100%;
+            height:50px;
+            border:3px solid orange;
+            box-sizing:border-box;
+            padding:  5px 55px 5px 5px; /*돋보기 넣기 위해서 오른쪽 패딩 줘서 공간마련*/
+            outline:none;
+            font-size:1.3em;
+        }
+        header #search input[type='submit']{
+            width:50px;
+            height:50px;
+            background:url('imgEx2/search.png');
+            border:0;
+            outline:none;
+            position:absolute;
+            top:0; right:0;
+        }
+        /******#lnb******/
+        #lnb ul{overflow:hidden; margin:5px 0;/*위아래 여백만 5px*/}
+        #lnb ul li{
+            float:left;
+            width:16.66666%;
+            text-align:center;
+            border-right:1px solid orange;
+            box-sizing:border-box;
+            font-size:1.3em;
+        }
+        #lnb ul li a{
+            color:black;
+        }
+        #lnb ul li:last-child{border:0;}
+        /******#section1*******/
+        #section1 .row1, #section1 .row2, #section1 .row3{overflow:hidden;}
+        .row1 div, .row2 div, .row3 div{
+            float:left;
+            width:50%;
+            height:135px;
+            border:2px solid white;
+            box-sizing:border-box;
+        }
+        #section1 img{width:100%; 
+                      height:inherit;/*부모의 height를 그대로 상속받음 100%와 동일*/}
+       /**********section2**********/
+        #section2 {margin:5px;}
+        #section2 ul li{
+            border:1px solid lightgray;
+            padding:8px;
+            white-space:nowrap;
+            overflow:hidden;
+            text-overflow:ellipsis;
+        }
+        /*******section3******/
+        #section3 ul li{
+            border:1px solid lightgray;
+            margin:5px; padding:5px;
+            height:120px;
+            position:relative;
+        }
+        #section3 ul li p.img{
+            position:absolute;
+            top:15px; left:15px;
+        }
+        #section3 ul li p.txt{
+            width:100%-120px;
+            padding: 5px 5px 5px 120px;
+        }
+            #section3 ul li p.txt span:first-child {
+                display: block;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                font-size:1.2em;
+                font-weight:bold;
+                color:darkblue;
+            }
+            /********footer******/
+            footer{
+                background-color:orange;
+                text-align:center; /*글씨와 이미지를 가운데 정렬*/
+            }
+            footer p:last-child{
+                font-size: .8em;
+                padding-bottom:5px;
+            }
     </style>
 </head>
 <body>
@@ -55,5 +147,106 @@
             </form>
         </div>
     </header>
+    <div id="lnb">
+        <ul>
+            <li><a href="lnb1">lnb1</a></li>
+            <li><a href="lnb2">lnb2</a></li>
+            <li><a href="lnb3">lnb3</a></li>
+            <li><a href="lnb4">lnb4</a></li>
+            <li><a href="lnb5">lnb5</a></li>
+            <li><a href="lnb6">lnb6</a></li>
+        </ul>
+    </div>
+    <section>
+        <div id="section1"> <!--#section1 3행2열 기사 이미지와 alink-->
+            <div class="row1">
+                <div>
+                    <a href="https://n.news.naver.com/mnews/article/055/0000972143?sid=101">
+                        <img src="https://imgnews.pstatic.net/image/055/2022/05/10/0000972143_001_20220510080101173.jpg?type=w647" alt="1행1열 기사" />
+                    </a>
+                </div>
+                <div>
+                    <a href="https://n.news.naver.com/mnews/article/018/0005211312?sid=101">
+                        <img src="https://imgnews.pstatic.net/image/018/2022/05/10/0005211312_001_20220510074101125.jpg?type=w647" alt="1행2열 기사" />
+                    </a>
+                </div>
+            </div>
+           <div class="row2">
+               <div>
+                   <a href="https://n.news.naver.com/mnews/article/018/0005211312?sid=101">
+                       <img src="https://imgnews.pstatic.net/image/018/2022/05/10/0005211312_001_20220510074101125.jpg?type=w647" alt="1행2열 기사" />
+                   </a>
+               </div>
+               <div>
+                   <a href="https://n.news.naver.com/mnews/ranking/article/277/0005086404?ntype=RANKING&sid=001">
+                       <img src="https://imgnews.pstatic.net/image/277/2022/05/10/0005086404_001_20220510081401486.jpg?type=w647" />
+                   </a>
+               </div>
+           </div>
+           <div class="row3">
+               <div>
+                   <a href="https://n.news.naver.com/mnews/article/009/0004961475?sid=105">
+                       <img src="https://imgnews.pstatic.net/image/009/2022/05/10/0004961475_001_20220510060601051.jpg?type=w647" />
+                   </a>
+               </div>
+               <div>
+                   <a href="https://n.news.naver.com/mnews/article/293/0000039042?sid=105">
+                       <img src="https://imgnews.pstatic.net/image/293/2022/05/10/0000039042_001_20220510095701381.png?type=w647" />
+                   </a>
+               </div>
+           </div>
+        </div>
+        <div id="section2"><!--#section2 : 기사 헤드라인 list와 alink-->
+            <ul>
+                <li>
+                    <a href="https://sports.news.naver.com/news.nhn?oid=442&aid=0000149061">
+                        [e스포츠 동향] 결국... 2022 항저우 아시안게임 무기한 연기
+                    </a>
+                </li>
+                <li>
+                    <a href="https://sports.news.naver.com/news.nhn?oid=109&aid=0004610822">
+                        [MSI] ‘한국 챔피언’ T1, 개막 전 주목… ‘파워랭킹 1위’
+                    </a>
+                </li>
+                <li>
+                    <a href="https://sports.news.naver.com/news?oid=477&aid=0000358236">
+                        맨시티, 홀란드 영입…2027년까지 계약 확정
+                    </a>
+                </li>
+                <li>
+                    <a href="https://sports.news.naver.com/news?oid=413&aid=0000139084">
+                        손흥민, 살라 제치고 누적 파워랭킹 1위 등극...남은 건 '득점왕'
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+        <div id="section3"><!--#section3 : 100x100 이미지와 가변길이-->
+            <ul>
+                <li>
+                    <p class="img">
+                        <img src="https://via.placeholder.com/100x100" />
+                    </p>
+                    <p class="txt">
+                        <span>첫번째 span부분은 말줄임 할 예정말줄임 할 예정말줄임 할 예정말줄임 할 예정말줄임 할 예정</span>
+                        <span>두번째 span부분은 다 나옴. 2줄이상 되기도함</span>
+                    </p>
+                </li>
+                <li>
+                    <p class="img">
+                        <img src="https://via.placeholder.com/100x100" />
+                    </p>
+                    <p class="txt">
+                        <span>첫번째 span부분은 말줄임 할 예정</span>
+                        <span>두번째 span부분은 다 나옴. 2줄이상 되기도함</span>
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <footer>
+        <p><img src="imgEx2/logo.png" alt="회사로고" /></p>
+        <p>서울시 강남구 역삼동 좋은빌딩 402호</p>
+    </footer>
 </body>
 </html>
