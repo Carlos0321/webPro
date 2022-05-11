@@ -1,0 +1,138 @@
+﻿/******페이지 초기화******/
+*{padding:0; margin:0}
+li{list-style:none;}
+a{text-decoration:none;}
+header{
+    width:90%;
+  height:100px;
+  overflow:hidden;
+}
+header #logo{
+    overflow:hidden;
+    float:left;
+    width:150px;
+    height:50px;
+    border:1px solid gray;
+    text-align:center;
+    line-height:50px;
+    background-color:#FDEADA;
+    margin: 20px 20px 20px 200px;
+    font-size:30px;
+}
+    header #gnb {
+        
+    }
+    header #gnb ul {
+       
+    }
+        header #gnb ul li {
+            float: left;
+            width: 100px;
+            height:50px;
+            line-height:50px;
+            font-size:25px;
+            margin:30px;
+        }
+
+header #gnb li:nth-child(3) {
+    margin-right:300px;
+}
+header #gnb ul li a{
+    color:black;
+}
+
+#mypage{
+    width:80%;
+    margin:0 auto;
+    font-size:32px;
+    margin-bottom:20px;
+}
+hr {
+    width: 100%;
+    margin: 10px 0 0 0 auto;
+    
+}
+#content {
+    width: 1500px;
+    overflow: hidden;
+    margin: 0 auto;
+   
+   
+}
+    #content #side_menu {
+        float: left;
+        width: 300px;
+        box-sizing: border-box;
+        margin:10px;
+    }
+    content #side_menu ul {
+       
+    }
+    #content #side_menu ul li {
+        border: 1px solid gray;
+        width:200px;
+        height:50px;
+        line-height:50px;
+        margin: 0 10px 0 70px;
+    }
+        #content #side_menu ul li:nth-child(5) {
+            background-color: #FDEADA;
+        }
+        #content #side_menu ul li a {
+            color: black;
+        }
+#content #main_menu {
+    margin: 10px;
+    width: 1000px;
+    float: left;
+    border: 1px solid gray;
+    height: 600px;
+    margin-left: 20px;
+    box-sizing: border-box;
+}
+ #tb{
+   font-size:25px;
+   width:1000px;
+   margin: 20px 0 0 50px;
+}
+#content #main_menu td {
+    text-align: center;
+    color: black;
+}
+    #content #main_menu a {
+        color: black;
+    }
+    input[type='text']{
+        width:400px;
+        height:40px;
+        margin-bottom:5px;
+    }
+input[type='email'] {
+    width: 400px;
+    height: 40px;
+    margin-bottom: 5px;
+}
+input[type='tel'] {
+    width: 400px;
+    height: 40px;
+    margin-bottom: 5px;
+}
+#sb {text-align:center;}
+input[type='submit']{
+   
+    width:80px;
+    margin-top:50px;
+    
+}   
+    footer #wrap {
+        margin: 0 auto;
+        overflow: hidden;
+    }
+footer {
+    width: 1500px;
+    height: 30px;
+    text-align: center;
+    background-color: #FDEADA;
+    border:1px solid gray;
+    margin:50px auto;
+}

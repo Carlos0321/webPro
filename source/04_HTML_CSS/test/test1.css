@@ -1,0 +1,19 @@
+﻿fieldset{
+    width:300px;
+}
+legend{
+    font-weight:bold;
+}
+table #td1 {
+   
+}   
+td{
+    padding:5px;
+}
+
+b{
+    color:red;
+}
+.wrap{
+    margin: 20px 120px;
+}

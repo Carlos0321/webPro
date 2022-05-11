@@ -1,0 +1,9 @@
+기본문법
+자료형(string, number, Boolean, object(array), function, undefined)
+내장함수(alert, prompt, confirm) 
+https://www.w3schools.com--IT기초사이트
+
+정수와 유리수의 구분 없이 사용.
+자바스크립트의 객체가 *.json와 같다
+
+window.onload = function () {};//브라우저 창이 다 뜬 후에 실행
