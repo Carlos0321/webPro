@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        table {
+            width: 300px;
+            height: 150px;
+            border: 1px solid gray;
+            text-align: center;
+        }
+
+        td {
+            width: 90px;
+            height: 50px;
+        }
+
+        input[type='submit'] {
+            width: 50px;
+            height: 30px;
+            text-align: center;
+            margin: 60px 0 0 80px;
+        }
+    </style>
+    <script>
+        function chk() {
+            var su1 = Number(frm.first.value); 
+            var su2 = Number(frm.second.value);
+            var mag = '';
+            if (su1 == '' || su2 == '') {
+                alert('수를 입력하세요');
+                return false;
+            } else if (su2 > su1) {
+                msg = '<h3>두번째 수가' + (su2 - su1) + '만큼 큽니다</h3>';
+                document.body.innerHTML += msg;
+                msg1 = msg.substring(4);
+                msg2 = msg1.substring(0, msg1.indexOf('</h3>'));
+                alert(msg2);
+                frm.first.value = su1;
+                frm.second.value = su2;
+                return false; 
+            } else if (su1 > su2) {
+               
+                msg = '<h3>첫번째 수가' + (su1 - su2) + '만큼 큽니다</h3>';
+                document.body.innerHTML += msg;
+                msg1 = msg.substring(4);
+                msg2 = msg1.substring(0, msg1.indexOf('</h3>'));
+                alert(msg2);
+                frm.first.value = su1;
+                frm.second.value = su2;
+                return false;
+            } else if (su1 == su2) {
+               
+                msg = '<h3>두 수는 같습니다.<h3>';
+                document.body.innerHTML += msg;
+                msg1 = msg.substring(4);
+                msg2 = msg1.substring(0, msg1.indexOf('</h3>'));
+                alert(msg2);
+                frm.first.value = su1;
+                frm.second.value = su2;
+                return false;
+            }
+            return false
+        }
+        
+    </script>
+</head>
+<body>
+    <form name="frm" onsubmit="return chk()">
+
+        <table>
+            <tr>
+                <td><h3>첫번째 수</h3></td>
+                <td><input type="number" name="first" /></td>
+            </tr>
+            <tr>
+                <td><h3>두번째 수</h3></td>
+                <td><input type="number" name="second" /></td>
+            </tr>
+            <tr>
+                <td >
+                    <input type="submit" value="결과" />
+                </td>
+            </tr>
+        </table>
+    
+    </form>
+</body>
+</html>
