@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        var s = { name: '홍길동', kor: 99, mat: 90, eng: 98, sci: 100 };
+        var s = makeStudent('홍길동', 99, 90, 98, 100);
+        function makeStudent(name, kor, mat, eng, sci) {
+            var resultObj = {
+                name: name,
+                kor: kor,
+                mat: mat,
+                eng: eng,
+                sci: sci,
+                getSum: function () {
+                    return this.kor + this.mat + this.eng + this.sci;
+                },
+                getAvg: function () {
+                    return this.getSum() / 4;
+                },
+                toString: function () {
+                    var output = '';
+                    for (var key in this) {
+                        if (key != 'getSum' && key != 'getAvg' && key != 'toString') {
+                            output += key + ':' + this[key] + '<br>';
+                        } else if (key == 'getSum' || key == 'getAvg') {
+                            output += key.substring(3).toUpperCase() + ':' + this[key]() + '<br>';
+                        } //if
+                    }//for
+                    return output;
+                },
+            };
+            return resultObj;
+        } //function
+        //var s = { name: '홍', kor: 99, mat: 97, eng: 98, sci: 100 };
+        s = makeStudent('홍', 90, 90, 99, 98);
+        var students = [];
+        students.push(makeStudent('홍길동',100,99,98,97));
+        students.push(makeStudent('유길동',100,90,80,70));
+        students.push(makeStudent('마길동', 99, 93, 94, 95));
+
+        students.forEach(function (data, idx) { //0방부터 끝방까지 사용할 임시변수
+            document.write(idx + '번째 : <br>' + data + '<hr>');
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>
