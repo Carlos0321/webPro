@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        function Student(name, kor, mat) {
+            this.name = name;
+            this.kor = kor;
+            this.mat = mat;
+        }
+        Student.prototype.getSum = function () {
+            return this.kor + this.mat;
+        };
+        Student.prototype.getAvg = function () {
+            return this.getSum() / 2;
+        };
+        Student.prototype.toString = function () {
+            return this.name + '(' + this.kor + ',' + this.mat +
+                ',총점:' + this.getSum() + ',평균' + this.getAvg() + ')';
+        };
+        var students = [
+            new Student('홍길동', 99, 98), new Student('김길동', 50, 60),
+            new Student('마길동', 89, 68), new Student('신길동', 60, 70),
+            new Student('윤길동', 79, 88),
+        ]; //빈배열 만들고 push해도 되고 ,  new 써서 만들어도 됌
+        // 출력만 할꺼면 forEach함수 이용하는것을 추천 
+        document.write('<h3>정렬 전 원 데이터</h3>');
+        students.forEach(function (value, idx) {
+            document.write(idx + ':' + value + '<br>');
+        });
+        originStudents = students; // 정렬전 데이터를 저장하고 싶으면 다른 변수 할당 
+        // 대부분의 경우 origin 필요 없음 
+        //총점 기준으로 오름차순 정렬
+        students.sort(function (left, right) {
+            return left.getSum() - right.getSum();
+        }); //객체정렬은 콜백함수 사용해야한다
+        document.write('<h3>총점 기준으로 오름차순 정렬한 데이터</h3>');
+        students.forEach(function (value, idx) {
+            document.write(idx + ':' + value + '<br>');
+        });
+        //이름 기준으로 오름차순정렬
+        students.sort(function (left, right) {
+          //  return left.kor - right.kor; // return 음수면 left가 앞, return 양수면 right를 앞
+            if (left.name <= right.name) { //왼쪽에 name이 작으면 참 
+                return -999; //return 음수면 left가 앞에 
+            } else if (left.name > right.name) {
+                return 1; //return 양수면 right가 앞에 
+            } else {
+                return 0; //return 0이면 위치 안바꿈 
+            }
+        });
+        document.write('<h3>이름 기준으로 오름차순 정렬한 데이터</h3>');
+        students.forEach(function (value, idx) {
+            document.write(idx + ':' + value + '<br>');
+        });
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

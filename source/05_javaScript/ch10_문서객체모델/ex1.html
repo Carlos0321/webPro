@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        table {
+            width: 280px;
+            height: 100px;
+            margin: 0 auto;
+        }
+    </style>
+    <script>
+        //정적인 부분이라 CSS로 색을 주는것이 맞지만 배열을 이용한 자바스크립트를 이용하는게 가독성이 높다
+        //
+        var color = ['red', 'orange', 'yellow', 'green', 'blue', 'navy', 'violet', 'white'];
+        window.onload = function () { //먼저 실행되게 하는것
+            var tds = document.querySelectorAll('td'); //선택자 호출
+            for (var idx in tds) {
+                tds[idx].style.backgroundColor = color[idx]; //배열에 따른 색상 부여 
+            }
+        };
+        function bgChange(n) { //마우스 올리면 변화는 로직
+            document.body.style.backgroundColor = color[n];
+        }
+    </script>
+    
+</head>
+<body>
+    <h6>중간예제1. 마우스를 올리면 바탕화면도 해당 색상으로 바꾸기</h6>
+    <table>
+        <tr onmouseout="bgChange(7)">
+            <td onmouseover="bgChange(0)"></td>
+            <td onmouseover="bgChange(1)"></td>
+            <td onmouseover="bgChange(2)"></td>
+            <td onmouseover="bgChange(3)"></td>
+            <td onmouseover="bgChange(4)"></td>
+            <td onmouseover="bgChange(5)"></td>
+            <td onmouseover="bgChange(6)"></td>
+        </tr>
+    </table>
+</body>
+</html>

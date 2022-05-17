@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        table{
+            width:280px;
+            height: 100px;
+            margin: 0 auto;
+        }
+        p{
+            color:blue;
+            font-size: 30px;
+            margin-left:100px;
+        }
+    </style>
+    <script>
+        
+        var color = ['red', 'orange', 'yellow', 'green', 'blue', 'navy', 'violet', 'white'];
+        window.onload = function () {
+            var tds = document.querySelectorAll('td');
+            for (var idx in tds) {
+                tds[idx].style.backgroundColor = color[idx];
+            }
+        };
+        function bgChange(n) {
+            document.body.style.backgroundColor = 'black';
+            var header = document.getElementsByTagName('p');
+            for (var idx in header) {
+                header[idx].innerHTML = '야호 수요일이다';
+            }
+        }
+        function Change() {
+            document.body.style.backgroundColor = 'white';
+            var header = document.getElementsByTagName('p');
+            for (var idx in header) {
+                document.body.removeChild(p[0]);
+            }
+        }
+    </script>
+</head>
+<body>
+        <table>
+            <tr onmouseout="Change(0)">
+                <td onmouseover="bgChange(0)"></td>
+                <td onmouseover="bgChange(1)"></td>
+                <td onmouseover="bgChange(2)"></td>
+                <td onmouseover="bgChange(3)"></td>
+                <td onmouseover="bgChange(4)"></td>
+                <td onmouseover="bgChange(5)"></td>
+                <td onmouseover="bgChange(6)"></td>
+            </tr>
+        </table>
+                <p>야호 수요일이다!</p>
+</body>
+</html>

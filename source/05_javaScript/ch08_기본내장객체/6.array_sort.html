@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        var arr1 = new Array('big', 'abc', 'zyx'); //['big','abc','zyx']
+        var arr2 = [52, 103, 273, 32, 57];
+        document.write('arr1 정렬전 : ' + arr1 + '<br>');
+        arr1.sort(); //정렬 -ascii 코드 순으로 정렬 10이 작은 수로 나옴 
+        document.write('arr1 정렬 후 :' + arr1 + '<br>');
+        document.write('arr2 정렬 전 :' + arr2 + '<br>');
+        arr2.sort(function (left, right) {
+            return left - right; // 오름차순 정렬 //문자면 그냥 sort하면 된다
+            //return right-left; 내림차순 정렬 
+        }); //콜백함수 사용: 콜백함수대로 정렬(매개변수 이용)
+        document.write('arr2 정렬 후 :' + arr2 + '<br>');
+        arr2.reverse(); //배열 요소의 순서를 뒤집는 함수  문자열도 가능 
+        document.write('arr2 요소순서 뒤집은 후 : ' + arr2 +'<br>');
+        var sliceArr2 = arr2.slice(0, 3); //0번째부터 3번째 앞 까지 
+        document.write('arr2 top 3 : ' + sliceArr2);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
