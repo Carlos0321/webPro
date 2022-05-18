@@ -1,0 +1,7 @@
+this는 현재 속성을 가리킬 때 사용 
+객체는 중괄호, json파일과 유사하다 
+배열처럼 꺽세괄호 이용을 해야한다. this.key(X)
+ex) for(var key in arr)
+    arr에 있는 key 값을 순서대로 불러오겠다 라는 의미 
+   일반 for문 (i= 0 ; i<arr.length; i++){ 여기서 인덱스 역할을 for-in문에서 key값이 한다고 보면 된다		
+

@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        img{
+            width:120px;
+        }
+    </style>
+    <script>
+        var out = ['img/0out.jpg', 'img/1out.jpg', 'img/2out.jpg', 'img/3out.jpg'];
+        var over = ['img/0over.jpg', 'img/1over.jpg', 'img/2over.jpg', 'img/3over.jpg',];
+        function changeimg(n) {
+            var img = document.getElementsByTagName('img');
+            img[n].src = over[n];
+        }
+        function reset(k) {
+            var img = document.getElementsByTagName('img');
+            img[k].src = out[k];
+        }
+    </script>
+</head>
+<body>
+    <img src="img/0out.jpg" onmouseover="changeimg(0)" onmouseout="reset(0)"/>
+    <img src="img/1out.jpg" onmouseover="changeimg(1)" onmouseout="reset(1)"/>
+    <img src="img/1out.jpg" onmouseover="changeimg(2)" onmouseout="reset(2)"/>
+    <img src="img/3out.jpg" onmouseover="changeimg(3)" onmouseout="reset(3)"/>
+</body>
+</html>

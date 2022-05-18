@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        var imgs;
+
+        window.onload = function () {
+           /* var down = 'img/but1.gif';
+            var up = 'img/but2.gif';*/
+
+            imgs = document.getElementsByTagName('img')[0]; //return값 배열인거 까먹지 말기
+        };
+        function down() {
+            imgs.src = 'img/but1.gif';
+        }
+        function up() {
+            imgs.src = "img/but2.gif";
+        }
+    </script>
+</head>
+<body>
+    <img src="img/but1.gif" onmousedown="up()" onmouseup="down()" />
+   
+</body>
+</html>

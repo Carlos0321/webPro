@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        wrap{
+            margin: 0 auto;
+            text-align:center;
+        }
+    </style>
+    <script>
+        //전역변수 설정
+       
+        window.onload = function () {
+            var id = opener.document.getElementById('id').value;
+            var name = document.getElementById('id1');
+            
+            name.value = id;
+        }
+        
+        function chk() {
+            if (idConfirm.value != 1) {
+                alert('ID를 중복확인하셔야 회원가입이 가능합니다');
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+    <form onsubmit="return chk()">
+        <input type="hidden" name="idConfirm" id="idConfirm" value="0"/>
+           <div id="wrap">
+               <p>아이디
+               <input type="text" name="id" id="id1" />
+               <input type="button" value="중복확인" onclick="openConfirm()"/></p>
+               <p><input type="submit" value="회원가입"/></p>
+           </div> 
+             
+       
+    </form>
+</body>
+</html>
