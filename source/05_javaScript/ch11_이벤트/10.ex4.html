@@ -11,7 +11,7 @@
         }
     </style>
     <script>
-        window.onclick() = function () {
+        window.onclick = function () {
             var p = document.getElementsByTagName('p')[0];
             p.innerHTML = '스크린좌표 : ' + event.screenX + ',' + event.screenY + '<br>';
             p.innerHTML  += '브라우저좌표 : ' + event.offsetX + ',' + event.offsetY + '<br>';
@@ -24,6 +24,7 @@
     </script>
 </head>
 <body>
-   <p><img src="img/car.gif" /></p>
+    <p>스크린좌표 : <br />브라우저 좌표</p>
+   <img src="img/car.gif" />
 </body>
 </html>
