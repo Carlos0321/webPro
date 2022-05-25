@@ -1,0 +1,25 @@
+폼태그는 뭔가를 입력받기 위함이기 때문에 버튼만 누르는(받는)거면 폼태그 안써도 됨.
+
+out : 웹 브라우저로 HTML 코드를 출력하는 기능
+PrintWriter처럼 스트림 형태로 데이터를 출력하는 클래스는 송신측과 수신측 사이에 가상의 통로를 만든다. out 내장 객체는 이 통로를 관리하는 변수이다.
+
+JSP는 trycatch안해줘도 된다
+서블릿은 자바기 때문에 예외처리 해줘야한다.
+
+jsp동작원리
+톰캣에 웹어플리케이션(프로젝트이름)을 실행할 수 있도록 배포
+배포할 소스 : D:\Carlos\webPro\source\06_JSP\ch05_jsp
+배포할 톰캣: D:\Carlos\webPro\IDE\apache-tomcat-9.0.63\webapps
+
+1. 톰캣webapps에   xx폴더 생성
+2. 소스폴더의 wepContent폴더 안에 있는 모든 내용을 xx폴더 밑에 복사
+3. 소스폴더의 build폴더 밑에 있는 모든 내용을 xx폴더 밑에 WEB-INF밑에 복사
+4. 톰캣 부팅(startup <->shutdown)
+
+-액션태그-
+forward : 현재의 페이지에서 다른 특정페이지로 전환할 때 사용. 단 URL은 변하지 않는다. URL과 페이지 내용이 상이하다. request객체는 그대로.
+<%@include file="includePage.jsp" %> <!-- jsp 파일 원본 그대로 include -->
+<jsp:include page="includePage.jsp"/> <!-- jsp파일의 결과를 include -->
+
+
+
