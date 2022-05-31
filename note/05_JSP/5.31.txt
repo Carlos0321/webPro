@@ -1,0 +1,5 @@
+modify.jsp --> modifyOk.jsp 에서 넘어갈 파라미터 
+dto 부분 = id, pw , name, phone1, phone2 ,phone3, gender, email, address
+bean 태그로 받기 , 한글 깨짐 주의 
+---------------------------------------------------------------------------------------
+oldPw, tempbirth 
