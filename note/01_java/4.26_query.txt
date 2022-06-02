@@ -6,3 +6,4 @@ public int insertStudent(StudentDto dto) {
 		int result = FAIL; 이부분 FAIL로 주는거 이해가 안됨 
 
 while(rs.next)하는 이유 
+여러 줄의 로직이 출력 될때 

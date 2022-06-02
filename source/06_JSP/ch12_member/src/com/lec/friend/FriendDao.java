@@ -95,7 +95,7 @@ public class FriendDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT * FROM FRIEND WHERE NAME LIKE '%'||?||'%' AND TEL LIKE '%'||?||'%'";
+		String sql = "SELECT * FROM FRIEND WHERE FNAME LIKE '%'||?||'%' AND TEL LIKE '%'||?||'%'";
 		
 		try {
 			conn=getConnection();

@@ -1,0 +1,35 @@
+데이터 베이스 연결 순서
+①JDBC 드라이버 로드 : DriverManager로드 : Class.forName(“oracle.jdbc.driver.OracleDriver”); 메모리에 OracleDriver가 로드된다.
+②데이터 베이스 연결 : Connection : DriverManager.getConnection(JDBC URL, 계정아이디, 비밀번호) : connection 객체 생성
+③SQL문 실행
+i.connection.createStatement();Statement 객체를 통해 SQL문 실행
+ii.ResultSet : statement.executeQuery(), statement.executeUpdate(); SQL문의 결과값을 ResultSet객체로 받는다
+④데이터 베이스 연결 해제
+
+
+ex)
+<%
+	Connection conn = null;
+	Statement  stmt = null;
+	ResultSet  rs = null;
+	String sql = "SELECT * FROM PERSONAL";
+	try{
+		Class.forName(driverMysql); //1단계 : 드라이버 로드
+		conn = DriverManager.getConnection(urlMysql, uidMysql, upwMysql); // 2단계 : DB연결객체
+		stmt = conn.createStatement();   // 3단계 : SQL전송객체
+		rs   = stmt.executeQuery(sql);   // 4단계(SQL전송) + 5단계(SQL전공결과 받기)
+		if(rs.next()){
+			.
+			.
+			.
+		// 6단계 : 결과받아 적당한 로직 수행
+				int pno = rs.getInt("pno");
+				String pname = rs.getString("pname");
+				String job = rs.getString("job");
+				int manager = rs.getInt("manager");
+				String startdate = rs.getString("startdate");
+				int pay = rs.getInt("pay");
+				int bonus = rs.getInt("bonus");
+				int dno = rs.getInt("dno");
+				
+%>

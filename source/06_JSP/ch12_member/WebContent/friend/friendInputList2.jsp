@@ -10,6 +10,13 @@
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
 	<link href="<%=conPath%>/css/style.css" rel="stylesheet">
+	<script>
+		function search(){
+			var fname = frm.fname.value;
+			var tel = frm.tel.value;
+			location.href='friendInputList2.jsp?fname='+fname+'&tel='+tel;
+		}
+	</script>
 </head>
 <body>
 <form action="friendInputListPro.jsp" method="post" name="frm">
@@ -20,9 +27,8 @@
 	value="<%String fname=request.getParameter("fname");
 			if(fname!=null) out.println(fname);%>														"></td>
 	<th>전화</th>
-	<td>
-	<input type="text" name="tel" required="required"
-		value="<%String tel = request.getParameter(tel);
+	<td><input type="text" name="tel" required="required"
+		value="<%String tel = request.getParameter("tel");
 				if(tel!=null) out.println(tel);%>">
 	<input type="submit" value="추가">
 	<input type="button" value="검색" onclick="search()">
@@ -36,7 +42,7 @@
 	
 	<% 
 	FriendDao fDao = FriendDao.getInstance();
-      ArrayList<FriendDto> fdto = fDao.getFriend();
+      ArrayList<FriendDto> fdto = fDao.search(fname,tel);
          out.println("<tr><th>순번</th><th>이름</th><th>전화</th></tr>");
             if(!fdto.isEmpty()){
                for(FriendDto fdtos: fdto){

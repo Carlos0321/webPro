@@ -1,0 +1,75 @@
+autofocus : 포커스 자동 설정
+placeholder : 각 필드에 대한 입력 형식 힌트제공
+required : 필수 입력 필드
+min, max : 숫자의 범위를 설정
+pattern : 조건을 사용한 일반식 표시
+<body>
+    <form action="#" method="get">
+        <fieldset>
+            <legend>필드 유효성 검사</legend>
+            <ul>
+                <li>
+                    <label for="name">이름<b>*</b></label>
+                    <input type="text" name="name" id="name" required="required" />
+                </li>
+                <li>
+                    <label for="id">아이디<strong>*</strong></label>
+                    <input type="text" name="id" id="id" required="required" />
+                </li>
+                <li>
+                    <label for="pw">비밀번호<b>*</b></label>
+                    <input type="password" name="pw" id="pw" required="required" />
+                </li>
+                <li>
+                    <label for="tel">전화<b>*</b></label>
+                    <input type="tel" name="tel" id="tel" required="required" />
+                </li>
+                <li>
+                    <label for="email">메일<b>*</b></label>
+                    <input type="email" name="email" id="email" required="required" />
+                </li>
+            </ul>
+            <p><input type="submit" /></p>
+        </fieldset>
+    </form>
+</body>
+※	사용자 인터페이스를 높이기 위한 placeholder 속성 : 각 필드에 대한 입력 형식 힌트
+<body>
+    <form> 
+        <fieldset>   
+        <legend>필드에 입력형식 힌트주기 </legend>   
+        <ul>         
+        <li><label for="phone">핸드폰 번호</label>
+            <input type="tel" id="phone" placeholder="01011112222" /></li>      
+        <li><label for="email">이메일</label>
+            <input type="email" id="email" placeholder="id@domain.com" /></li>   </ul>
+        </fieldset>  
+    </form>
+</body>
+</html>
+※	사용자 인터페이스를 높이기 위한 autofocus
+<body>
+    <form> 
+    <fieldset>   
+        <legend>포커스 자동이동</legend>   
+        <ul>
+            <li><label for="name"><b>*</b>이름</label><input type="text" id="name" autofocus="autofocus" /></li>
+            <li><label for="id"><b>*</b>아이디</label><input type="text" id="id" /></li>
+            <li><label for="pw"><b>*</b>비밀번호</label><input type="text" id="pw" /></li>
+            <li><label for="phone"><b>*</b>전화번호</label><input type="tel" id="phone" /></li>
+            <li><label for="email">이메일</label><input type="email" id="email" /></li>
+        </ul>   
+        <p><input type="submit" value="전송" /></p> </fieldset>  </form>
+</body>
+</html>
+※	휴대폰번호 입력을 위한 패턴 유효성 체크
+<form > 
+    <fieldset>
+        <legend>pattern 속성</legend>
+        <p><label for="tel">휴대폰 번호 : </label>
+        <input type="tel" id="email" pattern="\d{3}-\d{3,4}-\d{4}" title="휴대폰 번호는 3자리 숫자-3자리에서 4자리 숫자-4 자리 숫자로 입력하셔야 합니다." /></p>
+        <p><input type="submit" value="전송" /></p> 
+    </fieldset> 
+    </form>
+
+
