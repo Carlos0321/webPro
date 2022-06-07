@@ -1,0 +1,23 @@
+커넥션 풀
+클라이언트에서 다수의 요청이 발생할 경우 데이터베이스에 부하가 발생하게 된다
+이러한 문제를 해결 하기 위해서 커넥션 풀(DataBase Connection Pool)기법을 이용
+tomcat컨테이너가 데이터베이스 인증을 하도록 context.xml 파일에 아래의 코드를 추가
+톰캣이 미리 만든다.  미리 만든 커넥션 풀보다 많은 사람들이 요청하면 에러가 난다 
+
+커넥션풀 이용하기 
+기존 DAO파일에서 커넥션하는 부분을 바꿔준다
+private Connection getConnection() throws SQLException{
+	Connection conn = null;
+
+try{
+	Context ctx = new InitialContext();
+	DataSource ds =(DataSource) ctx.lookup("java:comp/env/jdbc/Oracle11g");
+	conn = ds.getConnection();
+}catch(NamingException e){
+	System.out.println("커넥션풀이름 오류 :" +e.getMessage());
+}
+return conn;
+
+커넥션 풀을 적용해 회원가입 다시 만들기
+기존의 member파일을 복사한다
+싱글톤을 없애고 객체를 new 해서 만든다 

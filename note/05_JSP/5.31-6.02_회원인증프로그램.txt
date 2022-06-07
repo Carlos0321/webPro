@@ -1,0 +1,88 @@
+DAO : Data Access Object
+데이터 베이스에 접속해서 데이터 추가, 삭제, 수정 등의 작업을 하는 클래스이다
+ 일반적인 JSP 혹은 Servlet 페이지 내에 위의 로직을 함께 기술할 수도 있지만, 유지보수 및 코드의 모듈화를 위해 별도의 DAO클래스를 만들어 사용한다
+
+DTO : Data Transfer Object
+DAO 클래스를 이용하여 데이터 베이스에서 데이터를 관리할 때 데이터를 일반적인 변수에 할당하여 작업 할 수도 있지만, 해당 데이터의 클래스 객체를 만들어 사용한다. 데이터만 하나로 모아 객체에 담는다.
+
+1. 요구사항 분석 , DB설계 
+query 및 sql 작성  - 요구사항을 분석하고 기본 틀을 잡아야 DB구성이 편하다
+
+2. DTO 구성 
+설계된 DB를 보고 dto에 데이터를 작성한다.  toString을 통해서 에러 대비 메세지를 출력
+
+3.DAO 구성
+1) 구분변수 만들기(회원가입 성공, 실패 구분 변수/ID사용가능, 중복 구분 변수/로그인 성공, ID오류, pw오류)
+성공과 실패 값은 주로 final int로 변수설정 한다. 
+ex) public static final int SUCCESS = 1; 
+     public static final int FAIL = 0 ; 
+
+2) 싱글톤 만들기 (getInstance만들기) 
+외부에서 new 못하게 하기 위해, 생성자는 한번만 만들기 위해 만든다
+ex) private static Dao instance ; // 스스로 본인 클래스 참조 
+	public static Dao getInstance(){
+	if(instance==null) {
+		instance = new Dao();	
+	}
+	return instance ;
+}
+private Dao(){} //외부에서 new 못하도록 생성자 생성
+
+3) conn리턴 객체 만들기 
+커넥션을 메소드 하나로 해결하기 위해 
+필요할때, 간단하게 메소드만 호출하려고 
+Class.forName();
+Connection conn = DriverManager.getConnection();
+
+4)원하는 쿼리문 수행 메소드 구성 
+필요한 페이지 액션으로 메소드만 넣으면 되기 때문에 
+SELECT문에는 ResultSet rs 필요 
+select 없는건 rs 필요 X
+
+--jsp이용--
+먼저 뷰단과 액션단을 구분해서 화면에 보여질 로직과 화면에 보이지 않지만 수행될 로직을 생각하자
+뷰단 = login, join에서 입력될부분(input)을 감싼 form이나 table을 생각하기 
+액션단에서 session을 setAttribute 해준다. 
+why? 뷰단에서 입력한(DB에 저장하기 위해) 부분을 확인, 비교하기 위해 만든다 . 
+Pro,Ok(액션단)에서 로그인성공, 회원가입 성공한 부분을 비교하기 위해서  session을 만들어 주고
+
+4. main.jsp 만들기 
+	로그인 전 , 후로 화면이 달라지는지 생각해서 로직을 만들자
+dto를 불러오고, 세션을 get한다. 	
+
+5. join.jsp 만들기 
+dto에서 만든 데이터와 똑같은 name을 써줘야한다.
+입력될 부분 (input)이 거의 들어간다고 보면 된다. 
+form태그에 name을 주어서 script 를 적용 시킬 수 있다. ex) function chk_from()
+
+6. 회원가입 처리 페이지 (액션단)-joinOk.jsp
+encoding 해주기 (post방식일때)
+jsp: useBean  : dto를 끌고 오기 (정확히는 bean파일을 쓰겠다 인데 둘이 비슷하게 이용된다.)
+jsp:setProperty 파라미터 끌고 오기 (생년월일은 따로 처리해줘야 한다) 그냥 Date쓰는게 편하다
+
+ex)
+MemberDao mDao = MemeberDao.getInstance();
+int result = mDao.confirmId(dto.getId);  // ID중복체크
+
+6. 로그인 페이지 만들기
+이미 로그인이 되어 있다면 현재 페이지에 있을 필요가 없기 때문에 response.sendRedirect로 다른페이지
+보내기 
+input 태그 안에 value에 <%%> 열고 세션을 get해주기  
+-> 입력한아이디가 회원가입하고나서 그대로 아이디가 보여지게 하기 위해서 
+
+7. 로그인 액션 페이지(loginOk.jsp) 
+id,pw 파라미터 가져오기 (request.getParameter이용)
+mDao 싱글톤 이용해서 loginCheck 메소드를 result 변수에 결과 담기
+ex) mDao = MemberDao.getInstance();
+	int result = mDao.loginCheck(id,pw);	
+
+8. 로그아웃 페이지 
+script로 몇초 후 페이지 이동 만들기 
+setTimeOut(function() { location.href = '이동페이지'},몇초 후);
+session.Invalidate();
+
+9. 정보수정 페이지
+선언부에 변수선언을 해주면 null값이 자동으로 초기화 되므로 편하다
+member세션이 있는 경우 로그인을 한 것이기 때문에 만든 변수에 세션값 넣어주기
+ex) 
+MemberDto member (MemberDto)session.getAttribute("member");

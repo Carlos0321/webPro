@@ -1,0 +1,15 @@
+DTO의 setter는 jsp:setProperty  빈태그 하기 위해서 쓰는것 
+getter는 게시판 쓸때 테이블안에서 첫번째 열은 getnum td 하니까 뿌려줄때
+
+// 글 갯수 가져오는 getBoradTotalCnt()
+// 글목록출력할 때 쓸 listBoard()
+// 글쓰기 insertBoard(dto)
+// 글번호로 글한줄 가져오기 BoardDto getBoardOneLine(int num)
+// 글번호로 글한줄 가져오기 BoardDto getBoardOneLine(String num)
+// 조회수하나 올리기 readCountUp(int num)
+// 조회수하나 올리기 readCountUp(String num)
+// 글 수정 updateBoard(dto)
+// 글 삭제 deleteBoard(int num, String pwChk)
+
+
+

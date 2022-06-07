@@ -44,6 +44,7 @@ UPDATE BOARD SET SUBJECT = '수정된제목1',
                             PW='1',
                             IP= '127.0.0.1'
                             WHERE NUM=1;
+COMMIT;                            
 -- 7.글 삭제 (비밀번호)
 DELETE FROM BOARD WHERE NUM=1 AND PW='1';
 
@@ -52,3 +53,46 @@ ROLLBACK;
 -- 8.글 조회수 조작
 UPDATE BOARD SET READCOUNT = 12 WHERE NUM =4;
 COMMIT;
+
+--9. 페이징을 위한 top-N 구문 (startRow-endRow까지 출력할 쿼리)
+SELECT * FROM BOARD ORDER BY REF DESC, RE_STEP; --1단계
+SELECT  ROWNUM RN, A.*
+    FROM (SELECT * FROM BOARD ORDER BY REF DESC, RE_STEP) A; --2단계
+SELECT * 
+    FROM(SELECT  ROWNUM RN, A.*
+       FROM (SELECT * FROM BOARD ORDER BY REF DESC, RE_STEP) A)
+       WHERE RN BETWEEN 11 AND 20; --3단계 최종 TOP-N구문
+
+--10 답변글 처리
+--원글 150번 글 입력
+INSERT INTO BOARD (NUM,WRITER,SUBJECT,CONTENT,EMAIL,PW,REF,RE_STEP,RE_INDENT,IP)
+    VALUES(150,'원글자', '글150','본문','WON@W.COM','1',
+    150, 0,0,'192.168.1.1');
+-- 답변글 저장전 해야할 STEP (엑셀의 ⓐ STEP)
+UPDATE BOARD SET RE_STEP = RE_STEP + 1 WHERE REF=150 AND RE_STEP >0;
+--150번글의 첫번째 답변글:  답변글의 REF는 원글의 REF, 답변글의 RE_STEP=원글의 RE_STEP+1, 답변글의 RE_INDENT=원글의 RE_INDENT+1
+INSERT INTO BOARD (NUM,WRITER,SUBJECT,CONTENT,EMAIL,PW,REF,RE_STEP,RE_INDENT,IP)
+    VALUES(151,'답변자','글150-1','본문','W@W.COM','1',
+                150,1,1,'192.168.1.12');
+
+-- 답변글 저장전 해야할 STEP (엑셀의 ⓐ STEP)
+UPDATE BOARD SET RE_STEP = RE_STEP + 1 WHERE REF=150 AND RE_STEP >0;
+SELECT * FROM BOARD WHERE NUM=151;
+--150번글의 두번째 답변글:  답변글의 REF는 원글의 REF, 답변글의 RE_STEP=원글의 RE_STEP+1, 답변글의 RE_INDENT=원글의 RE_INDENT+1
+INSERT INTO BOARD (NUM,WRITER,SUBJECT,CONTENT,EMAIL,PW,REF,RE_STEP,RE_INDENT,IP)
+    VALUES(152,'답변자2','글150-2','본문','W@W.COM','1',
+                150,1,1,'192.168.1.12');                
+                
+                
+COMMIT;                
+SELECT * FROM BOARD ORDER BY REF DESC, RE_STEP;
+--150번 원글의 답변글 152번글의 답변글 
+SELECT * FROM BOARD WHERE NUM = 152;  -- 원글
+    -- ⓐ STEP 
+    UPDATE BOARD SET RE_STEP = RE_STEP + 1 WHERE REF=150 AND RE_STEP > 1;
+    --답변글 저장 : 원글152번의 REF, RE_STEP+1, RE_INDENT+1
+  INSERT INTO BOARD (NUM,WRITER,SUBJECT,CONTENT,EMAIL,PW,REF,RE_STEP,RE_INDENT,IP)
+    VALUES(153,'답답자','글152-1','본문',NULL,'1',150,2,2,'192.168.1.12');      
+COMMIT;
+
+       
