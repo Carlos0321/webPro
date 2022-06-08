@@ -1,0 +1,18 @@
+1.파일 업로드 라이브러리 설치
+(1)파일 업로드 구현을 위해 파일 업로드와 관련된 라이브러리 다운로드 및 설치가 필요하다.
+(2)http://www.servlets.com 접속 후 좌측의 COS File Upload Library(com.oreilly.servlet) 클릭 후, cos-22.05.zip 다운로드후 압축해제
+(3)다운로드 받은 라이브러리(cos.jar)를 WEB-INF>lib에 복사 ; 이렇게 이클립스 프로젝트 안에 라이브러리를 넣어야 파일업로드 기능을 구현할 수 있다
+
+2.파일 업로드 프로그래밍
+	업로드 파일 저장 폴더 생성 webapp밑에 fileUpFolder 생성(업로드할 파일 위치)
+
+파일 첨부할때는 post방식으로 해줘야 한다 
+<form action="ex1_fileupPro.jsp" method="post" enctype="multipart/form-data"></form>
+파일을 받기 위해서 mutipartrequest객체를 받아 오기 위해서 기존 default값이 아닌  enctype="multipart/form-data"을 써줘야한다
+그냥 requeset 객체는 파일 수정이 힘들다 그래서MultipartRequest 객체를 이용
+
+MultipartRequest mRequest = new MultipartRequest(request, path, maxSize, "utf-8", new DefaultFileRenamePolicy());
+MultipartRequest객체 안에 request를 넣어주면서 역할을 위임해준다
+
+Enumeration<String> paramNames = multipartRequest.getFileNames();
+//파라미터 이름들 데이터베이스에 저장하기 위해서 이름을 받는다  게시판에는 originalFilename이 들어가야함
