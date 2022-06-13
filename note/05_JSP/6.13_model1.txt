@@ -1,0 +1,4 @@
+fboardWrite.jsp  => 원글 쓰기
+	: fsubject, fcontent, ffilename, fpw
+fboardWriteForm.jsp?fnum=<%=fnum%>&pageNum = <%=pageNum%> : 답변글 쓰기 
+	:fsubject, fcontent,ffilename,

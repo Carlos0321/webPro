@@ -23,7 +23,7 @@ public class CustomerDao {
 	public static final int LOGIN_FAIL = 0;
 	
 	
-	public static final int CUSTOMER_NONEXIST = 1;
+	public static final int CUSTOMER_NONEXISTENT = 1;
 	public static final int CUSTOMER_EXIST = 0;
 	
 	private static CustomerDao instance;  
@@ -62,7 +62,7 @@ public class CustomerDao {
 			if(rs.next()) {
 				result = CUSTOMER_EXIST; 
 			}else {
-				result = CUSTOMER_NONEXIST;
+				result = CUSTOMER_NONEXISTENT;
 			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());

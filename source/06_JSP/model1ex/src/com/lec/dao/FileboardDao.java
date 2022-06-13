@@ -74,7 +74,7 @@ public class FileboardDao {
 				 Date frdate= rs.getDate("frdate");
 				 String cname =rs.getString("cname");
 				 String cemail = rs.getString("cemail");
-				 dtos.add(new FileboardDto(fnum, cid, fsubject, fcontent, ffilename, fpw, fhit, fref, fre_step, fre_level, fip, frdate));
+				 dtos.add(new FileboardDto(fnum, cid, fsubject, fcontent, ffilename, fpw, fhit, fref, fre_step, fre_level, fip, frdate, cname, cemail));
 			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
@@ -95,7 +95,7 @@ public class FileboardDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT COUNT(*) FROM  FILEBOARD";
+		String sql = "SELECT COUNT(*) totcnt FROM  FILEBOARD";
 		try {
 			conn=getConnection();
 			pstmt=conn.prepareStatement(sql);
@@ -213,7 +213,7 @@ public class FileboardDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT * FROM FILEBOARD WHERE FNUM= ?";
+		String sql = "SELECT F.* , CNAME, CEMAIL FROM FILEBOARD F, CUSTOMER C WHERE F.CID=C.CID AND FNUM=?";
 		try {
 			conn=getConnection();
 			pstmt=conn.prepareStatement(sql);
