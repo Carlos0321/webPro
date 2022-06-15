@@ -9,6 +9,7 @@
 	<link href="<%=conPath%>/css/style.css" rel="stylesheet">
 	<style>
 	b{color : red;}
+	h2{color : blue;}
 	</style>
 </head>
 <body>
@@ -19,8 +20,8 @@
 		<input type="number" name="result">
 	</p>
 	<p><input type="submit" value="확인"></p>
-	<h2>${param.su1 * param.su2 } = ${param.result }
- 	${param.su1 * param.su2 eq param.result ? "는 정답" :"는 false"} </h2>
+	<h2>${param.su1} * ${param.su2 } = ${param.result }
+ 	${param.su1 * param.su2 eq param.result ? "<b>는 true 정답</b>" :"<b>는 false</b>"} </h2>
 	
 	</form>
 </body>
