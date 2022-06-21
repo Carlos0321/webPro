@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="js/jquery-3.6.0.min.js"></script>
+<script	 src="http://code.jquery.com/jquery-1.12.4.js"></script>
 </head>
 	<script type="text/javascript">
 	$(document).ready(function(){
