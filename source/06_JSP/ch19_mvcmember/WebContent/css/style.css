@@ -1,8 +1,10 @@
 @charset "UTF-8";
-table{
+table {
 	width:70%; margin: 0 auto;
 }
-td,th {text-align : center ; padding:10px;}
-h2 , b {text-align: center;}
-a{color : black;}
-.padding{text-align : center;}
+td, th {text-align: center; padding: 5px 10px;}
+h2, b{text-align: center;}
+a {color:black;}
+input[type='text'], input[type='password'], input[type='email'], input[type='file'],
+input[type='date'] {width:90%; margin: 0 auto;}
+.paging {text-align: center;}

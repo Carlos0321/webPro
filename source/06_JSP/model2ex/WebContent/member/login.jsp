@@ -8,24 +8,12 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
-	<link href="${conPath }/css/style.css" rel="stylesheet">
+	<link href="${conPath }/css/login.css" rel="stylesheet">
 </head>
 <body>
-	<!-- ${requestScope.joinResult} -->
-	<c:if test="${not empty joinResult }">
-		<script>
-			alert('${joinResult }');
-		</script>
-	</c:if>
-	<!-- ${requestScope.joinErrorMsg} -->
-	<c:if test="${not empty joinErrorMsg }">
-		<script>
-			alert('${joinErrorMsg }');
-			history.back();
-		</script>
-	</c:if>
+	<jsp:include page="header.jsp"/>
 	<form action="${conPath }/login.do" method="post">
-		<table id ="loginForm_wrap">
+		<table id="loginForm_wrap">
 			<tr><th>ID</th><td><input type ="text" name="mId" value="${mId }" required="required"></td></tr>
 			<tr><th>PW</th><td><input type ="password" name="mPw" value="${mPw }" required="required"></td></tr>
 			<tr>
@@ -36,6 +24,6 @@
 			</tr>
 		</table>
 	</form>
-	<!-- ${sessionScope.mId} -->
+	<jsp:include page="footer.jsp"/>
 </body>
 </html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script	 src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<style type="text/css">
+		table {border-collapse: collapse;}
+		tr{border-bottom: 1px solid blue;}
+	</style>
+	<script>
+		$(document).ready(function () {
+			$.ajax({
+				url : 'ex.json',
+				dataType : 'json',
+				success : function (data) {
+					out = '<tr><th>ID</th><th>NAME</th><th>PRICE</th><th>description</th></tr>';
+					$.each(data,function(idx, item){
+						out +='<tr><td>'+item.id+'</td><td>'+item.name+'</td><td>'+item.price+'</td><td>'+item.description+'</td></tr>';
+					}); //$.each함수
+					$('#dataShow').html(out);
+				} //success속성
+			}); // $.ajax함수
+			
+		});
+	</script>
+</head>
+<body>
+<body>
+	<table id ="dataShow"></table>
+</body>
+</html>
