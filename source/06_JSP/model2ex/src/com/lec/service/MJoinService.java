@@ -22,7 +22,7 @@ public class MJoinService implements Service {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
-		String path = request.getRealPath("img"); // 서버에 저장될 디렉토리
+		String path = request.getRealPath("memberPhotoUp"); // 서버에 저장될 디렉토리
 		int maxSize = 1024 * 1024; // 사진 업로드 제한
 		String mPhoto = ""; // 첨부된 파일이 저장된 파일 이름
 		// MultipartRequest mRequest = null; 순서 상관없음
@@ -75,7 +75,7 @@ public class MJoinService implements Service {
 			try {
 				is = new FileInputStream(serverFile);
 				os = new FileOutputStream(
-						"D:/Carlos/webPro/source/06_JSP/model2ex/WebContent/img/" + mPhoto);
+						"D:/Carlos/webPro/source/06_JSP/model2ex/WebContent/memberPhotoUp/" + mPhoto);
 				byte[] bs = new byte[(int) serverFile.length()];
 				while (true) {
 					int readByteCnt = is.read(bs);

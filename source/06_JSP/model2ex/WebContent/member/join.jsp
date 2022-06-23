@@ -8,7 +8,12 @@
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
 	<link href="${conPath}/css/style.css" rel="stylesheet">
-	<style></style>
+	<style>
+	#content_form {
+			width: 800px; height:480px; 
+			margin: 20px auto 0px;
+	}
+</style>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script>
 		$(document).ready(function(){
@@ -25,17 +30,24 @@
 				});// ajax함수
 			});// keyup 이벤트
 			$('input[name="mEmail"]').keyup(function(){
+				var patternMail = /^[a-zA-Z0-9_]+@[a-zA-Z0-9]+(\.[a-zA-Z]+){1,2}$/; // 메일 패턴
 				var mEmail = $('input[name="mEmail"]').val();
-				$.ajax({
-					url : '${conPath}/emailConfirm.do',
-					data : 'mEmail='+mEmail,
-					type : 'get',
-					dataType : 'html',
-					success : function(data){
-						$('#emailConfirmResult').html(data); 				
-					}
-				});// ajax함수
-			});
+				if(patternMail.test(mEmail)){
+					$.ajax({
+						url : '${conPath}/emailConfirm.do',
+						type : 'get',
+						dataType : 'html',
+						data : "mEmail="+mEmail,
+						success : function(data){
+							$('#emailConfirmResult').html(data);
+						}
+					});//ajax
+				}else if(!mEmail){
+					$('#emailConfirmResult').html(' &nbsp; ');
+				}else{
+					$('#emailConfirmResult').html('메일 형식을 지켜주세요');
+				}//if
+			});// mEmail keyup 이벤트
 			$('input[name="mPw"], input[name="mPwChk"]').keyup(function(){
 				var mPw = $('input[name="mPw"]').val();
 				var mPwChk = $('input[name="mPwChk"]').val();
@@ -85,7 +97,7 @@
   </script>
 </head>
 <body>
-	<jsp:include page="header.jsp"/>
+	<jsp:include page="../main/header.jsp"/>
 	<form action="${conPath }/join.do" method="post" enctype="multipart/form-data">
 		<table id="content_form">
 			<caption>회원가입</caption>
@@ -101,16 +113,17 @@
 			<td><input type="email" name="mEmail">
 				<div id="emailConfirmResult">&nbsp;</div></td></tr>
 			<tr><th>사진</th><td><input type="file" name="mPhoto"></td></tr>
-			<tr><th>생년월일</th><td><input type="date" name="mBirth" id="datepicker"></td></tr>
+			<tr><th>생년월일</th><td><input type="text" name="mBirth" id="datepicker"></td></tr>
 			<tr><th>주소</th><td><input type="text" name="mAddress"></td></tr>
 			<tr>
 				<td colspan="2">
-					<input type="submit" value="회원가입">
-					<input type="button" value="로그인" onclick="location='${conPath}/loginView.do'">
+					<input type="submit" value="회원가입" class="btn">
+					<input type="button" value="로그인" class = "btn" 
+							onclick="location='${conPath}/loginView.do'">
 				</td>
 			</tr>
 		</table>
 	</form>
-	<jsp:include page="footer.jsp"/>
+	<jsp:include page="../main/footer.jsp"/>
 </body>
 </html>

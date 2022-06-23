@@ -11,6 +11,10 @@
 	<link href="${conPath }/css/style.css" rel="stylesheet">
 </head>
 <body>
-	<jsp:forward page="main.do"/>
+	<table id="content_form">
+		<caption>상세보기</caption>
+		<tr><th>글번호</th><td>${content.fId}</td></tr>
+		<tr><th>작성자</th><td>${content.mName }</td></tr>
+	</table>
 </body>
 </html>

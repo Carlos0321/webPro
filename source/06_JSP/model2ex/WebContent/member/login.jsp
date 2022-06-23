@@ -8,22 +8,30 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
-	<link href="${conPath }/css/login.css" rel="stylesheet">
+	<link href="${conPath }/css/style.css" rel="stylesheet">
+	<style>
+	#content_form {
+		width: 800px; height:370px;
+		margin: 130px auto 0px;
+	}
+	</style>
 </head>
 <body>
-	<jsp:include page="header.jsp"/>
+	<jsp:include page="../main/header.jsp"/>
+	<div id="content_form">
 	<form action="${conPath }/login.do" method="post">
-		<table id="loginForm_wrap">
+		<table>
 			<tr><th>ID</th><td><input type ="text" name="mId" value="${mId }" required="required"></td></tr>
-			<tr><th>PW</th><td><input type ="password" name="mPw" value="${mPw }" required="required"></td></tr>
+			<tr><th>PW</th><td><input type ="password" name="mPw"  required="required"></td></tr>
 			<tr>
 				<td colspan="2">
-				<input type="submit" value="로그인">
-				<input type="button" value="회원가입" onclick="location='${conPath}/joinView.do'">
+				<input type="submit" value="로그인" class="btn">
+				<input type="button" value="회원가입" class="btn" onclick="location='${conPath}/joinView.do'">
 				</td>
 			</tr>
 		</table>
 	</form>
-	<jsp:include page="footer.jsp"/>
+	</div>
+	<jsp:include page="../main/footer.jsp"/>
 </body>
 </html>
