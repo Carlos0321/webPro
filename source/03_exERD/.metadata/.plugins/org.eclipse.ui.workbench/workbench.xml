@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workbench progressCount="14" version="2.0">
 <workbenchAdvisor/>
-<window height="768" width="1024" x="-16" y="12">
+<window height="768" maximized="true" width="1024" x="6" y="20">
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="160"/>
@@ -28,6 +28,7 @@
 <part id="0"/>
 <part id="1"/>
 <part id="2"/>
+<part id="3"/>
 </presentation>
 </folder>
 </info>
@@ -38,8 +39,11 @@
 <editor id="com.tomato.exerd.editor.DiagramEditor" name="shoppingmall.exerd" partName="shoppingmall.exerd" path="D:/Carlos/webPro/source/03_exERD/newProject/shoppingmall.exerd" title="shoppingmall.exerd" tooltip="newProject/shoppingmall.exerd" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/newProject/shoppingmall.exerd"/>
 </editor>
-<editor activePart="true" focus="true" id="com.tomato.exerd.editor.DiagramEditor" name="데이터베이스구현평가.exerd" partName="데이터베이스구현평가.exerd" path="D:/Carlos/webPro/source/03_exERD/newProject/데이터베이스구현평가.exerd" title="데이터베이스구현평가.exerd" tooltip="newProject/데이터베이스구현평가.exerd" workbook="DefaultEditorWorkbook">
+<editor id="com.tomato.exerd.editor.DiagramEditor" name="데이터베이스구현평가.exerd" partName="데이터베이스구현평가.exerd" path="D:/Carlos/webPro/source/03_exERD/newProject/데이터베이스구현평가.exerd" title="데이터베이스구현평가.exerd" tooltip="newProject/데이터베이스구현평가.exerd" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/newProject/데이터베이스구현평가.exerd"/>
+</editor>
+<editor activePart="true" focus="true" id="com.tomato.exerd.editor.DiagramEditor" name="project.exerd" partName="project.exerd" path="D:/Carlos/webPro/source/03_exERD/newProject/project.exerd" title="project.exerd" tooltip="newProject/project.exerd" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/newProject/project.exerd"/>
 </editor>
 </editors>
 <views>
@@ -183,6 +187,8 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/newProject/ex1.exerd"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/newProject/데이터베이스구현평가.exerd"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/newProject/shoppingmall.exerd"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/newProject/project.exerd"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/newProject/shoppingmall.exerd"/>
 </editors>
 <item historyLabel="dept_emp.exerd" index="0"/>
 <item historyLabel="book.exerd" index="1"/>
@@ -211,7 +217,12 @@
 <item historyLabel="ex1.exerd" index="10"/>
 <item historyLabel="데이터베이스구현평가.exerd" index="11"/>
 <item historyLabel="shoppingmall.exerd" index="12"/>
-<item active="true" historyLabel="데이터베이스구현평가.exerd" index="11"/>
+<item historyLabel="데이터베이스구현평가.exerd" index="11"/>
+<item historyLabel="project.exerd" index="13"/>
+<item historyLabel="shoppingmall.exerd" index="14"/>
+<item historyLabel="project.exerd" index="13"/>
+<item historyLabel="shoppingmall.exerd" index="14"/>
+<item active="true" historyLabel="project.exerd" index="13"/>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
 </page>
@@ -233,6 +244,9 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" name="project.exerd" tooltip="newProject/project.exerd">
+<persistable path="/newProject/project.exerd"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" name="데이터베이스구현평가.exerd" tooltip="newProject/데이터베이스구현평가.exerd">
 <persistable path="/newProject/데이터베이스구현평가.exerd"/>
 </file>
