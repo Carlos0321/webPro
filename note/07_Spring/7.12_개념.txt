@@ -1,0 +1,18 @@
+Spirng 개요
+1.	프레임워크 : 특정한 목적에 맞게 프로그래밍을 쉽게 하기 위한 프로그래밍 틀을 약속
+2.	Spring이란?
+	자바(JAVA)언어를 기반으로, 다양한 어플리케이션을 제작할 때 효율적으로 빠르게 개발할 수 있도록 하는 어플리케이션 프레임워크(프로그래밍 툴) ; Rod Johnson이 만든 오픈 소스 프레임워크
+	스프링의 경우 톰캣을 이용할 수 있으며, EJB에 비해서 코드의 경량화 그리고 개발 중에 테스트가 쉽다는 점이 특징.
+
+XML로 설정을 해주면 편리하다 
+DAO를 XML로 만들어 준다.   sql 쿼리만 넣으면 된다 (MyBatis,JPA)
+LOMBOK DTO(setter&getter&toString) 라이브러리
+
+DI(Dependency Injection; 의존주입 = 부품조립)와 IOC 컨테이너(Inversion of Control ; 컴포넌트의 재사용을 용이하게 해주고 단위 테스트를 쉽게 할 수 있도록 지원하는 스프링, Spring)
+A객체는 B/C 객체에 의존한다. Ex. CalculationTestMain은 Calculation객체에 의존한다
+
+방법1. A객체가 B/C객체를 직접 생성한다. new B() new C()로
+방법2. B/C객체 외부에 생성하여 A객체에 넣어준다. (new로 안만들고 xml로 만들어서 필요할때 주입받아서 사용)
+
+결국 스프링이란 부품을 생성하고 조립하는 라이브러리 집합체라고 할 수 있다
+

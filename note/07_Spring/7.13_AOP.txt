@@ -1,0 +1,41 @@
+AOP(Aspect Oriented Programming)
+
+우선 JAVA에서는 다중 상속이 불가하므로 다양한 모듈에 상속기법을 통한 공통 기능 부여는 한계가 있습니다. 그리고, 기능 구현부분에 핵심 기능 코드와 공통 기능 코드가 섞여 있어 효율성이 떨어집니다.
+
+AOP방법은 핵심 기능과 공통 기능을 분리 시켜놓고, 공통 기능을 필요로 하는 핵심 기능들에서 사용하는 방식.
+
+AOP와 관련된 용어
+	Aspect : 공통 기능. 예를 들어 로깅같은 기능 자체에 대한 용어
+	Advice : 공통기능을 구현한 객체 메소드
+	Join Point : 핵심기능. 공통 기능을 적용할 수 있는 대상.
+	PointCuts : Join Point의 부분으로 실제 Advice를 적용해야 되는 부분
+	Proxy : Advice가 적용되었을 때 만들어지는 객체
+	Weaving : Advice와 target이 결합되어서 프록시 객체를 만드는 과정(advice를 핵심기능에 적용하는 행위)
+
+공통기능 구현
+1.pom.xml에서 dependency 추가
+2. class 생성; 메소드 만들기
+3. META-INF 안에 CTX 생성
+4. 메인함수 만들어서 xml의 bean 주입받아 함수 호출
+5. 공통기능을 구현할 ProxyClass 만들기
+-around함수   
+	object를 return 타입으로 하고, 메소드 쓰기
+   	이 함수는 중간에 반드시 갔다가 와야한다
+	공통기능 수행하고 핵심기능 수행했다가 다시 돌아와서 공통기능 수행
+	따라서 핵심 기능 매개변수를 넣어줘야한다. 그 핵심기능이 JoinPoint
+	(매개변수에 ProceedingJointPoint형으로 joinPoint 써줘야한다)
+	proceed는 joinPoint를 수행하라는 뜻, return 타입이 있을 수도 있으니 object로 받음
+try-catch 해주기
+	여기까지 실행해도 오류가 안사라진다. why? try절 안에서 return 타입을 받아버리면 catch절로 넘어갔을때 return 해줄게 사라진다.  -- catch 없애고 finally 후 joinPoint.proceed에 생기는 오류는 throw 하기
+	핵심기능 수행 후에 수행할 로직은 finally 뒤에 써주면 된다.
+
+6. xml로 어떤 함수를 어떻게 쓸건지 이어주는 과정 필요 
+	Namespaces가서 aop 체크 후 
+	xml에서 <aop:config> 열어주고 
+	<aop:config>가 공통기능을 의미  여기의 id를 aroundAspect(연결시킬 이름) ref에 proxyClass 쓰기
+	pointcut : 연결
+	(expression :어디에 왔으면 좋겠는지 적는 부분  / id = 핵심기능이름 ) .
+	/ within 은 ~에 포함된거 다 라는 뜻 
+
+	 aop:around  어떤 함수 연결시킬래? 라고 묻는 부분 
+ 
