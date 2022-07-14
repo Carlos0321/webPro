@@ -1,0 +1,43 @@
+(1)웹브라우저를 통해 클라이언트의 요청이 들어오면 무조건 맨 처음 DisptcherServlet에서 요청을 받는다. 
+(2)요청된 내용을 HandlerMapping에게 작업을 보내 요청 URL과 매칭되는 컨트롤러를 검색해 준다.
+(3)요청된 내용의 처리를 컨트롤러에게 요청한다
+(4)요청된 내용을 Controller에게도 보내고 요청된 내용에 따라 다른 일을 하고, 컨트롤러 샐행결과를 ModelAndView로 변환해서 리턴한다
+(5)컨트롤러의 실행결과를 보여줄 View를 검색하기 위해 ViewResolver에게도 보낸다.
+(6)요청한 결과의 View로 응답 생성을 한다.
+우리가 작업을 많이 할 부분은 Controller, View, Model이고 나머지 부분은 Spring에서 거의 자동으로 다루어준다. 
+요청이 들어오면 DispatcherServlet 이 먼저 받고, Controller에게 요청을 한다. Controller에서 다시 DispatcherServlet으로 뭔가 응답을 준다. 그러면 DispatcherServlet에서 ViewResolver를 통해 View에 호출이 된다. 그러면 사용자에게 응답이 이루어 진다.
+
+
+프로젝트를 실행하면 실행된 화면의 URL이 /가 나옴
+
+-- /(슬래시)요청이 들어갔다라는 뜻 
+
+-- 슬래시 요청이 들어오면 dispatchServelet으로 무조건 넘어가게 됨
+
+-- dispatch서블릿에서 Controlloer를 찾는다
+
+-- controller가 실행이 되면서 model and view 로 넘어가게됨
+
+※ 스프링 MVC 프로젝트 템플릿의 구조
+₪ src/main/java		- 개발되는 Java 코드의 경로
+₪ com.lec.ch06
+	HomeController.java	- 컨트롤러 : Dispatcher에서 전달된 요청을 처리
+₪ src/main/resources	- 서버가 실행될 때 필요한 파일들의 경로
+₪ src/test/java		- 테스트 전용 경로 (각 테스트 코드 작성 경로)
+₪ src/test/resources	- 테스트 시에만 사용되는 파일들 경로
+₪ JRE System Library
+₪ Maven Dependencies
+₪ src
+₪  main
+   ₪ webapp		- web root
+     ₪ resources
+     ₪ WEB-INF
+       ₪ classes
+       ₪ spring	- 스프링 설정 파일의 경로
+         ₪ appServlet
+		>servlet-context.xml	- 스프링 컨테이너 설정 파일
+         ₪ root-context.xm		- 스프링 컨테이너 설정 파일
+       ₪ views		- 뷰(.jsp)
+         ₪ home.jsp
+       web.xml	- Maven의 설정 파일 DispatcherServlet 서블릿 맵핑. 
+                     스프링 설정 파일(servlet-context.xml, root-context.xml) 위치 정의

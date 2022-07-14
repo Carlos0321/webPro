@@ -1,0 +1,7 @@
+@Aspect를 이용한 AOP구현
+작업순서
+①의존 설정
+②@Aspect 어노테이션을 이용한 Aspect class 제작
+	@pointcut
+	@Around @Before @AfterReurning @AfterThrowing @After
+③XML 설정 파일에 <aop:aspectj-autoproxy/>설정
