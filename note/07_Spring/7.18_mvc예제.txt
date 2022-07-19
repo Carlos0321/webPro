@@ -1,0 +1,38 @@
+redirect 키워드 : 다른 페이지로 이동할 때 사용
+입력하거나 넘겨주는 요청값(model attribute)이 필요 없이 controller단을 호출할 때
+   request 객체를 새로 만듦 
+
+forward 키워드 : 다른 페이지로 이동할 때 사용
+요청값(model attribute)도 함께 넘겨주면서 controller단을 호출할 때
+
+Map<String,Object> map = model.asMap()  : model을 map화 해서 가져오기 
+모델에 있는 값을 전달 해주려고 이용한다 object 객체라 형변환 해주기 
+모델은 객체 자체를 넘길 수 없어서 map이라는 공간에 담아준 다음  asMap()으로 열어준다
+
+-paging-
+PAGESIZE		한 페이지당 글 수 :10개	
+BLOCKSIZE	블록당 페이지수 : 10개	
+		
+currentPage	현재 몇 페이지인지(int)	
+pageNum		현재 몇 페이지인지(String)	
+		
+startRow	시작번호	(현재페이지 - 1) * 페이지당 갯수+ 1
+endRow	끝번호 	시작번호 + 페이지당갯수 - 1
+pageCnt	페이지 수	Math.ceil((double)전체글갯수/페이지당 갯수)
+	블록수	Math.ceil(페이지전체갯수/블록당 페이지 갯수)
+startPage	시작페이지	((현재페이지 -1)/블록당페이지수)*블록당페이지수 +1
+		현재페이지 - (현재페이지-1)%블록당페이지수
+endPage	끝페이지	시작페이지 + 블록당페이지 수 -1
+
+-답변글 
+num	제목	ref	re_step	re_indent		1. num은 1씩 증가
+1 	글1	1	0	0		2. ref - 원글이면 num과 같고,
+2 	글2	2	0	0		       답변글이면 원글의 ref와 같다
+3 	글3	3	0	0		3. re_step은 원글이면 0
+4 	글1-1	1	0+1	1		 답변글이면 다음과 같이 진행한다
+5 	글2-1	2	0+1+1+1+1	1		  ⓐ ref가 같고 원글보다 re_step가
+6 	글3-1	3	0+1+1	1	  큰 값이 있으면 그 글의 re_step을 re_step+1
+7 	글2-2	2	0+1+1+1	1	  ⓑ 답변글 re_step = 원글 re_step + 1
+8 	글2-3	2	0+1	1		4. re_indent - 원글이면 0
+9 	글2-3-1	2	0+1+1	2		                답변글이면 원글의 re_indent+1
+10 	글3-2	3	0+1	1		

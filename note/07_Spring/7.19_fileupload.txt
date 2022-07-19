@@ -1,0 +1,9 @@
+<!-- 파일업로드 -->
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.3.1</version>
+	</dependency>
+
+Servlet-context.xml 에 추가
+	<resources mapping="/upload/**" location="/upload/" />

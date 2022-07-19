@@ -1,0 +1,10 @@
+RequestMapping
+1. Get 방식과 Post 방식
+@RequestMapping에서 요청을 방을 때 Get방식(url에 데이터를 실어서 보냄)과 Post방식(header에 데이터를 실어서 보냄)을 구분 할 수 있다
+@RequestMapping 어노테이션을 이용해서 value값은 요청경로. method값에는 요청방식이 들어간다. 방식이 맞지 않으면 405에러
+
+2. redirect 키워드 : 다른 페이지로 이동할 때 사용
+입력하거나 넘겨주는 요청값(model attribute)이 필요 없이 controller단을 호출할 때
+
+3. forward 키워드 : 다른 페이지로 이동할 때 사용
+요청값(model attribute)도 함께 넘겨주면서 controller단을 호출할 때

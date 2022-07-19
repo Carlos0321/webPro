@@ -1,0 +1,95 @@
+폼데이터
+목표 : 데이터 입력을 받아 처리하는 기법들의 이해
+HttpServletRequest, @RequestParam @ModelAttribute @PathVariable 등을 이용
+
+1.	HttpServletRequest 클래스를 이용해서 form 데이터를 전송받는다
+	주소창 http://localhost:8181/ch18/member/result?id=aa&pw=11
+           서버IP주소     켄텍스트path   요청경로     httpServletRequest가 가져감
+
+2.	@RequestParam 어노테이션을 이용해서 데이터를 전송받는다
+	@RequestMapping("member/join2")
+	public String input2(@RequestParam("name") String name,
+			@RequestParam("id") String id,
+			@RequestParam("pw") String pw,
+			@RequestParam("age") int age,
+			@RequestParam("email") String email,
+			@RequestParam("address") String address,		
+			Model model) {
+		model.addAttribute("name",name);
+		model.addAttribute("id", id);
+		model.addAttribute("pw",pw);
+		model.addAttribute("age",age);
+		model.addAttribute("email",email);
+		model.addAttribute("address",address);
+		return "member/result1";
+	}
+3.	데이터(커맨드) 객체를 이용하여 데이터가 많을 경우 간단하게 사용할 수 있다.
+	@RequestMapping("member/join3")
+	public String input3(String name,String id,String pw,
+			int age,String email,String address,		
+			Model model) {
+		System.out.println("3방법");
+		model.addAttribute("name",name);
+		model.addAttribute("id", id);
+		model.addAttribute("pw",pw);
+		model.addAttribute("age",age);
+		model.addAttribute("email",email);
+		model.addAttribute("address",address);
+		return "member/result1";
+	}
+public class MemberInfo {
+		private String name;
+		private String id;
+		private String pw;
+		private int age;
+		private String email;
+}
+	데이터 커맨드를 이용한 개선 방법 : 코드 양이 적다
+	@ModelAttribute(“모델이름선언”) Emp sch를 이용하면 자동적으로 model객체안에 attribute가 Add와 setting이 동시에 된다.
+@RequestMapping("member/join4")
+	public String input4(MemberDto memberDto, Model model) {
+		//스프링프레임워크가 자동으로 MemberInfo 객체 생성 후 setter를 이용하여 속성을 setting
+		model.addAttribute("member",memberDto);
+		return "member/result4";
+	}
+	@RequestMapping("member/join5")
+	public String input5(@ModelAttribute("member") MemberDto memberDto,
+			Model model) {
+		//스프링프레임워크가 자동으로 MemberDto의 속성에 setting 하고 model에 담는다
+		//커맨드 객체의 이름이 가독성이 적으면, @ModelAttribute 어노테이션을 이용해서 가독성이 
+높고 간결한 이름으로 바꿀 수 있다
+		return "member/result4";
+	}
+	@RequestMapping("member/join6")
+	public String input6(MemberDto memberDto,
+			Model model) {
+		//스프링프레임워크가 자동으로 MemberDto의 속성에 setting 하고 model에 담는다 
+(memberDto라는 속성명으로)
+		return "member/result6";
+	}
+	
+4.	@ModelAttribute : 모든 요청경로에 공통으로 필요한 model attribute가 있을 경우 사용
+	@ModelAttribute(“모델이름선언”)을 이용하면 자동적으로 모든 요청경로를 수행하기전 model객체안에 attribute Add와 setting이 동시에 된다. @ModelAttribute의 용도는 크게 2가지가 있다.
+@Controller
+public class MyController {
+// 모든 요청경로를 수행할 때마다 list()메소드는 수행한다. list라는 model 어트리뷰트에 add된다
+	@ModelAttribute("list")
+	public ArrayList<String> list(){
+		ArrayList<String> list = new ArrayList<String>();
+		list.add("테스트1"); list.add("테스트2");
+		return list;
+	}
+	@ModelAttribute("cnt")
+	public int cnt(){
+		return 5;
+	}
+	@RequestMapping("/")
+	public String input(Model model) {
+//		ArrayList<String> list = new ArrayList<String>();
+//		list.add("테스트1"); list.add("테스트2");
+//		model.addAttribute("list",list);
+		return "input";
+	}
+
+5.	@PathVariable을 이용하여 경로(path)에 변수를 넣어 요청 메소드에서 파라미터로 이용할 수 있다.
+@RequestMapping("student/*")
