@@ -52,8 +52,8 @@ public class EmpController {
 	}
 
 	@RequestMapping(value="update",method=RequestMethod.POST)
-	public String update(Emp emp, String tempHiredate, Model model) {
-		emp.setHiredate(Timestamp.valueOf(tempHiredate +" 00:00:00"));
+	public String update(Emp emp, String hiredate, Model model) {
+		
 		try {
 			model.addAttribute("updateResult",empService.update(emp));
 		}catch(Exception e) {
@@ -74,12 +74,22 @@ public class EmpController {
 		return "write";
 	}
 	@RequestMapping(value="confirmNo", method=RequestMethod.GET)
-	public String confirmNo(int empno, Model model) {
-		if(empService.detail(empno) ==null) {
+	public String confirmNo(Emp emp, Model model) {
+		if(empService.detail(emp.getEmpno()) ==null) {
 			model.addAttribute("msg","사용가능한 사번입니다");
 	}else {
 		model.addAttribute("msg","중복된 사번은 사용불가합니다");
 	}
 		return "forward:writeView.do";
+	}
+	@RequestMapping(value="write", method=RequestMethod.POST)
+	public String write(Emp emp, Model model) {
+		try {
+		model.addAttribute("writeResult",empService.insert(emp));
+		}catch(Exception e) {
+			model.addAttribute("writeResult","필드값이 넘 길어요");
+			return "forward:writeView.do";
+		}
+		return "forward: empDeptList.do";
 	}
 }
