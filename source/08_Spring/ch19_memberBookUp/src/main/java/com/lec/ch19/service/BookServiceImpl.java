@@ -27,24 +27,21 @@ public class BookServiceImpl implements BookService {
 
 	@Override
 	public List<Book> mainList() {
-		System.out.println(1);
 		List<Book> list = bookDao.mainList();
-		System.out.println(2);
 		return list;
 	}
 
 	@Override
-	public List<Book> bookList(String pageNum) {
-		Paging paging = new Paging(bookDao.totCntBook(), pageNum, 3, 3);
-		Book book = new Book();
+	public List<Book> bookList(String pageNum,Book book) {
+		Paging paging = new Paging(bookDao.totCntBook(book), pageNum, 3, 3);
 		book.setStartRow(paging.getStartRow());
 		book.setEndRow(paging.getEndRow());
 		return bookDao.bookList(book);
 	}
 
 	@Override
-	public int totCntBook() {
-		return bookDao.totCntBook();
+	public int totCntBook(Book book) {
+		return bookDao.totCntBook(book);
 	}
 
 	@Override
@@ -86,6 +83,7 @@ public class BookServiceImpl implements BookService {
 		}//while
 		book.setBimg1(bimg[0]);//첫번째 첨부한 파일 이름
 		book.setBimg2(bimg[1]);//두번째 첨부한 파일 이름
+		System.out.println("책 등록 전 : " + book);
 		return bookDao.registerBook(book);
 		
 	}

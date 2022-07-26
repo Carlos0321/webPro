@@ -17,15 +17,16 @@
 	</select>
 	
 	<insert id="joinMember" parameterType="Member">
-		INSERT INTO MEMBER VALUES(#{mid},#{mpw},#{mname},#{mmail},#{mpost},#{maddress})
+		INSERT INTO MEMBER VALUES
+		(#{mid}, #{mpw}, #{mname}, #{mmail}, #{mpost}, #{maddress})
 	</insert>
 	
-	<select id="getMember" parameterType="String" resultType="Member">  <!-- return 타입이 resultType과 같다 -->
+	<select id="getDetailMember" parameterType="String" resultType="Member">  <!-- return 타입이 resultType과 같다 -->
 		SELECT * FROM MEMBER WHERE MID=#{mid}
 	</select>
 	
 	<update id="modifyMember" parameterType="Member">
-		UPDATE MEMBER SET MPW = #{mid},
+		UPDATE MEMBER SET MPW = #{mpw},
                                MNAME = #{mname},
                                MPOST = #{mpost},
                                MADDRESS = #{maddress} 

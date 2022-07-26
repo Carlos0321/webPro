@@ -53,6 +53,7 @@ public class MemberServiceImpl implements MemberService {
 		};
 		mailSender.send(message); //메일 발송
 		httpSession.setAttribute("mid", member.getMid()); //세션에 mid 속성 추가
+		System.out.println("가입할 회원정보 : "+member);
 		return memberDao.joinMember(member); //member insert
 	}
 
